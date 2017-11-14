@@ -56,8 +56,9 @@ $result = $conn->query($q);
         <?php 
 
         while($row = $result->fetch_assoc()) {
-            echo "<h2>" . $row["subject"] . "</h2>";
-            echo "<p>" . $row["message"] . "</p>";
+            echo '<a href="./question.php?id=' . $row["post_id"] . '">';
+            // echo $row["post_id"];
+            echo "<h2>" . $row["subject"] . "</h2></a>";
         }
 
         ?>
