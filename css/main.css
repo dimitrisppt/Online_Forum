@@ -34,8 +34,7 @@ body {
 }
 
 
-
-#Login {
+#QuestionForm {
     display: flex;
     background-color: lightgrey;
     justify-content: center;
@@ -44,4 +43,36 @@ body {
 
 .form {
     float: right;
+}
+
+
+#navigation ul {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+    overflow: hidden;
+    background-color: darkgrey;
+}
+
+#navigation li {
+    float: left;
+}
+
+#navigation li a {
+    display: block;
+    color: black;
+    text-align: center;
+    padding: 14px 16px;
+    text-decoration: none;
+}
+
+#navigation li a:hover {
+    background-color: lightgrey;
+    font-weight: bold;
+}
+
+#Login {
+    display: flex;
+    background-color: lightgrey;
+    justify-content: center;
 }

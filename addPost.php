@@ -19,7 +19,7 @@ if ($_GET["id"]) {
 	    <meta http-equiv="Content-type" content="text/html; charset=utf-8">
 	    <meta name="viewport" content="width=device-width, initial-scale=1">
 
-	    <link rel="stylesheet" type="text/css" href="./main.css">
+	    <link rel="stylesheet" type="text/css" href="css/main.css">
 
 		<body>
 		    <div id="MainContainer">
@@ -27,32 +27,6 @@ if ($_GET["id"]) {
 		            <div id="Header">
 		                <h1 id="HeaderTitle"><span>Forum</span></h1>
 						<div id="navigation">
-							<style>
-		                        #navigation ul {
-		                            list-style-type: none;
-		                            margin: 0;
-		                            padding: 0;
-		                            overflow: hidden;
-		                            background-color: darkgrey;
-		                        }
-
-		                        #navigation li {
-		                            float: left;
-		                        }
-
-		                        #navigation li a {
-		                            display: block;
-		                            color: black;
-		                            text-align: center;
-		                            padding: 14px 16px;
-		                            text-decoration: none;
-		                        }
-
-		                        #navigation li a:hover {
-		                            background-color: lightgrey;
-		                            font-weight: bold;
-		                        }
-		                    </style>
 							<ul>
 		                      <li><a href="<?php echo 'login.php'; ?>">Login</a></li>
 		                      <li><a href="<?php echo 'index.php'; ?>">Home</a></li>
