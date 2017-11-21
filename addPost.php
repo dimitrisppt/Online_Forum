@@ -29,6 +29,7 @@ if ($_GET["id"]) {
 						<div id="navigation">
 							<ul>
 		                      <li><a href="<?php echo 'login.php'; ?>">Login</a></li>
+							  <li><a href="<?php echo 'signup.php'; ?>">Sign Up</a></li>
 		                      <li><a href="<?php echo 'index.php'; ?>">Home</a></li>
 		                    </ul>
 						</div>

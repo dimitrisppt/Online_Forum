@@ -10,6 +10,7 @@ if ($_POST["subject"] && $_POST["message"]) {
 $q = "SELECT * FROM lab_posts";
 $result = $conn->query($q);
 
+
 ?>
 
 <!DOCTYPE html>
@@ -33,6 +34,7 @@ $result = $conn->query($q);
                 <div id="navigation">
                     <ul>
                       <li><a href="<?php echo 'login.php'; ?>">Login</a></li>
+                      <li><a href="<?php echo 'signup.php'; ?>">Sign Up</a></li>
                       <li><a href="<?php echo 'addPost.php'; ?>">Add Post</a></li>
                     </ul>
                 </div>
