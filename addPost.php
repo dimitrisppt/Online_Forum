@@ -39,10 +39,6 @@ if ($_GET["id"]) {
 					<div id="QuestionForm">
 						<form action="./" method="post">
 							<h2 id="Question"</h2><span style="color: black">Ask a Question: </span><br><br>
-								<!-- Name: <input type="text" class="form" name="name" id="name" value="" /><br>
-								Surname: <input type="text" class="form" name="surname" id="surname" value="" /><br>
-								Email: <input type="text" class="form" name="email" id="email" value="" /><br>
-								Question: <textarea name="question" class="form" id="question"></textarea><br><br><br> -->
 								Subject: <input type="text" class="form" name="subject" id="subject" /><br>
 								Message: <input type="text" class="form" name="message" id="message" /><br>
 							<input type="submit" class="form" value="Submit" />

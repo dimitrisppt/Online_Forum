@@ -33,10 +33,6 @@ include('config.php');
                     <div id="LoginForm">
                         <form action="./" method="post">
                             <h2 id="Details"</h2><span style="color: black">Please enter your details: </span><br><br>
-                                <!-- Name: <input type="text" class="form" name="name" id="name" value="" /><br>
-                                Surname: <input type="text" class="form" name="surname" id="surname" value="" /><br>
-                                Email: <input type="text" class="form" name="email" id="email" value="" /><br>
-                                Question: <textarea name="question" class="form" id="question"></textarea><br><br><br> -->
                                 Username: <input type="text" class="form" name="username" id="username" /><br>
                                 Password: <input type="password" class="form" name="password" id="password" /><br>
                             <input type="submit" class="form" value="Submit" />

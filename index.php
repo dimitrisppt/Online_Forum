@@ -39,12 +39,6 @@ $result = $conn->query($q);
             </div>
         </div>
 
-
-
-
-
-
-
         <?php
 
         while($row = $result->fetch_assoc()) {
@@ -55,7 +49,7 @@ $result = $conn->query($q);
         }
 
         ?>
-        <!-- <h2>Test</h2> -->
+
 
     </div>
 </body>
