@@ -20,10 +20,12 @@ SET time_zone = "+00:00";
 -- Table structure for table `lab_posts`
 --
 
+
 CREATE TABLE `lab_posts` (
   `post_id` int(11) NOT NULL,
   `subject` text NOT NULL,
   `message` text NOT NULL
+  `topic_post` int(8) NOT NULL
 ) ENGINE=InnoDB AUTO_INCREMENT=4 DEFAULT CHARSET=latin1;
 
 --
@@ -44,11 +46,37 @@ INSERT INTO `lab_posts` (`post_id`, `subject`, `message`) VALUES
 CREATE TABLE `post_replies` (
   `post_id` int(11) NOT NULL,
   `message` text NOT NULL
+  `post_topic` int(8) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
 -- Indexes for dumped tables
 --
+
+--
+-- Indexes for table `lab_posts`
+--
+ALTER TABLE `lab_posts`
+  ADD PRIMARY KEY (`post_id`);
+
+--
+-- AUTO_INCREMENT for dumped tables
+--
+
+--
+-- AUTO_INCREMENT for table `lab_posts`
+--
+ALTER TABLE `lab_posts`
+  MODIFY `post_id` int(11) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=4;
+  
+--need to link lab posts to users
+--need to link post replies to users
+
+
+--linking post replies to lab posts
+ALTER TABLE `post_replies` ADD FOREIGN KEY(`post_topic`) REFERENCES `lab_posts`(`post_id`) ON DELETE CASCADE ON UPDATE CASCADE
+
+
 
 --
 -- Indexes for table `lab_posts`
