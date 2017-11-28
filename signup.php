@@ -2,8 +2,8 @@
 
 include('config.php');
 
-if ($_POST["fullname"] && $_POST["username"] && $_POST["password"]) {
-    $su = "INSERT INTO sign_up (fullname, username, password) VALUES ('" . $_POST["fullname"] . "','" . $_POST["username"] . "','" . $_POST["password"] . "')";
+if ($_POST["email"] && $_POST["username"] && $_POST["password"]) {
+    $su = "INSERT INTO sign_up (email, username, password) VALUES ('" . $_POST["email"] . "','" . $_POST["username"] . "','" . $_POST["password"] . "')";
     $conn->query($su);
     header("Location: ./");
     die();
@@ -44,7 +44,7 @@ $result = $conn->query($su);
                     <div id="LoginForm">
                         <form action="./signup.php" method="post">
                             <h2 id="Details"</h2><span style="color: black">Please enter your details: </span><br><br>
-                                Full Name: <input type="text" class="form" name="fullname" id="fullname" /><br>
+                                Email: <input type="text" class="form" name="email" id="email" /><br>
                                 Username: <input type="text" class="form" name="username" id="username" /><br>
                                 Password: <input type="password" class="form" name="password" id="password" /><br>
 
