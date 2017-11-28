@@ -3,12 +3,25 @@
 include('config.php');
 
 if ($_POST["username"] && $_POST["password"]) {
-    $l = "INSERT INTO login (username, password) VALUES ('" . $_POST["username"] . "','" . $_POST["password"] . "')";
-    $conn->query($l);
+    $userName = $_POST['username'];
+    $passWord = $_POST['password'];
+    $query = "SELECT * FROM sign_up WHERE username='" . $userName . "' and  password='" . $passWord . "'";
+    $res = $conn->query($query);
+    $rows = $res->num_rows;
+
+    if ($rows>0)
+    {
+        $_SESSION['username'] = $_POST['username'];
+        header("Location: ./");
+
+    }
+    else
+    {
+        $errorMsg = "Username and password not found";
+
+    }
 }
 
-$l = "SELECT * FROM login";
-$result = $conn->query($l);
 
 ?>
 
