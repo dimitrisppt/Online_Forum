@@ -40,18 +40,7 @@ $result = $conn->query($q);
 
 
 		</div>
-
-        <?php
-
-        while($row = $result->fetch_assoc()) {
-            echo '<a href="./question.php?id=' . $row["post_id"] . '">';
-
-            // echo $row["post_id"];
-            echo "<h2>" . $row["subject"] . "</h2></a>";
-
-        }
-
-        ?>
+        
        <?php
 	        include ('footer.php');
         ?>
