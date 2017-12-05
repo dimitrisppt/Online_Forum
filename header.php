@@ -24,6 +24,7 @@
 
                       <a href="<?php echo 'login.php'; ?>">Login</a>
                       <a href="<?php echo 'signup.php'; ?>">Sign Up</a>
+                      <a href="<?php echo 'index.php'; ?>">Home</a>
                       <a href="<?php echo 'addPost.php'; ?>">Add Post</a>
                       <div class="search">
                         <form action="./">
