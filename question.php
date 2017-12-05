@@ -1,9 +1,10 @@
 <?php
 
 include('config.php');
+session_start();
 
-if ($_POST["replyTitle"] && $_POST["replyMessage"]) {
-    $su = "INSERT INTO post_replies (subject, message, post_id) VALUES ('" . $_POST["replyTitle"] . "','" . $_POST["replyMessage"] . "','" . $_GET["id"] . "')";
+if ($_POST["replyMessage"]) {
+    $su = "INSERT INTO post_replies (message, post_id, username, date_posted) VALUES ('" . $_POST["replyMessage"] . "','" . $_GET["id"] . "','" . $_SESSION["username"] . "','" . date("Y-m-d") . "')";
     $conn->query($su);
 }
 
@@ -92,8 +93,13 @@ if ($_GET["id"]) {
 					while($row = $replyResult->fetch_assoc()) {
 						echo '<div id="questionSection" class="questionSection">';
 							// echo $row["post_id"];
-							echo "<h3>" . $row["subject"] . "</h3>";
 							echo "<p>" . $row["message"] . "</p>";
+							echo '<span class="date_posted">' . $row["date_posted"] . '</span>';
+                            if ($row["username"]) {
+                                echo '<span class="username">' . $row["username"] . '</span>';
+                            } else {
+                                echo '<span class="username">Anonymous</span>';
+                            }
 
 						echo '</div>';
 					}
@@ -107,11 +113,6 @@ if ($_GET["id"]) {
 				<div id="Reply">
 					<h3>Add your Answer</h3>
 					<form action="./question.php?id=<?php echo $_GET["id"]; ?>" method="post">
-						<div class="form-group"> <!-- Subject field -->
-							<label class="control-label " for="replyTitle">Title</label>
-							<input class="form-control" id="replyTitle" name="replyTitle" type="text"/>
-						</div>
-
 						<div class="form-group"> <!-- Message field -->
 							<label class="control-label " for="replyMessage">Reply Message</label>
 							<textarea class="form-control" cols="40" id="replyMessage" name="replyMessage" rows="10"></textarea>

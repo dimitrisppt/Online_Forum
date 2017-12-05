@@ -4,7 +4,7 @@ include('config.php');
 session_start();
 
 if ($_POST["subject"] && $_POST["message"]) {
-    $q = "INSERT INTO lab_posts (subject, message, username) VALUES ('" . $_POST["subject"] . "','" . $_POST["message"] . "','" . $_SESSION["username"] . "')";
+    $q = "INSERT INTO lab_posts (subject, message, username, data_posted) VALUES ('" . $_POST["subject"] . "','" . $_POST["message"] . "','" . $_SESSION["username"] . "','" . date("Y-m-d") . "')";
     $conn->query($q);
 }
 
@@ -62,6 +62,7 @@ $result = $conn->query($q);
                         echo '<div id="questionSection" class="questionSection">';
                             echo '<a href="./question.php?id=' . $row["post_id"] . '">';
                             echo "<h2>" . $row["subject"] . "</h2></a>";
+                            echo '<span class="date_posted">' . $row["data_posted"] . '</span>';
                             if ($row["username"]) {
                                 echo '<span class="username">' . $row["username"] . '</span>';
                             } else {
@@ -81,7 +82,6 @@ $result = $conn->query($q);
         while($row = $result->fetch_assoc()) {
             echo '<a href="./question.php?id=' . $row["post_id"] . '">';
             echo "<h2>" . $row["subject"] . "</h2></a>";
-
         }
 
         ?>

@@ -254,6 +254,10 @@ hr {
 
 
 span.username {
-  color: purple;
+  color: #2980b9;
   float: right;
+}
+
+span.date_posted {
+  color: #7f8c8d;
 }
