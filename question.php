@@ -18,7 +18,7 @@ if ($_GET["id"]) {
 	$replyResult = $conn->query($su);
 }
 
-$su = "SELECT * FROM post_replies";
+$su = "SELECT * FROM post_replies WHERE post_id=" . $_GET["id"];
 $replyResult = $conn->query($su);
 
 ?>
