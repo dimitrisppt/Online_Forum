@@ -3,9 +3,7 @@
 
 <head>
     <title>Forum</title>
-    <link rel="icon" 
-      type="image/png" 
-      href="logo.png" />
+    <link rel="icon" type="image/png"  href="img/logo.png" />
     <meta charset="utf-8">
     <meta http-equiv="Content-type" content="text/html; charset=utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">

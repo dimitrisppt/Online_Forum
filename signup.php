@@ -1,33 +1,20 @@
 <?php
 
-include('config.php');
-include('header.php');
-session_start();
+require_once('core/init.php');
+include('core/header.php');
 
 if ($_POST["email"] && $_POST["username"] && $_POST["password"]) {
-    $su = "INSERT INTO sign_up (email, username, password) VALUES ('" . $_POST["email"] . "','" . $_POST["username"] . "','" . $_POST["password"] . "')";
-    $conn->query($su);
+    $user->register($_POST["username"], $_POST["password"], $_POST["email"]);
     header("Location: ./");
     die();
 }
 
-$su = "SELECT * FROM sign_up";
-$result = $conn->query($su);
+$result = $user->getAllSignups();
 
 ?>
 
             <div id="Content">
                 <div id="Login">
-                    <!-- <div id="LoginForm">
-                        <form action="./signup.php" method="post">
-                            <h2 id="Details"</h2><span style="color: black">Please enter your details: </span><br><br>
-                                Email: <input type="text" class="form" name="email" id="email" /><br>
-                                Username: <input type="text" class="form" name="username" id="username" /><br>
-                                Password: <input type="password" class="form" name="password" id="password" /><br>
-
-                            <input type="submit" class="form" value="Sign Up" />
-                        </form>
-                    </div> -->
 
                         <div class="container">
                           <h3>Sign Up</h3>
@@ -58,9 +45,7 @@ $result = $conn->query($su);
                     </div>
                 </div>
 
-               <?php
-	                include ('footer.php');
-                ?>
+               <?php include ('core/footer.php'); ?>
             </div>
         </body>
 

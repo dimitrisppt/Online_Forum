@@ -1,65 +1,24 @@
 <?php
 
-include('config.php');
-include('header.php');
-session_start();
+require_once('core/init.php');
+include('core/header.php');
 
 if ($_POST["replyMessage"]) {
-    $su = "INSERT INTO post_replies (message, post_id, username, date_posted) VALUES ('" . $_POST["replyMessage"] . "','" . $_GET["id"] . "','" . $_SESSION["username"] . "','" . date("Y-m-d") . "')";
-    $conn->query($su);
+    $posts->replyToPost($_POST["replyMessage"], $_GET["id"], $_SESSION["username"]);
 }
-
-$result = null;
-if ($_GET["id"]) {
-	$q = "SELECT * FROM lab_posts WHERE post_id=" . $_GET["id"];
-	$result = $conn->query($q);
-
-	$su = "SELECT * FROM post_replies WHERE post_id=" . $_GET["id"];
-	$replyResult = $conn->query($su);
-}
-
-$su = "SELECT * FROM post_replies WHERE post_id=" . $_GET["id"];
-$replyResult = $conn->query($su);
 
 ?>
 
 		<div id="Content">
 			<h2 class="h2Titles">Question</h2>
 			<hr id="titleBar">
-				<?php
-					while($row = $result->fetch_assoc()) {
-						echo '<div id="QuestionSection">';
-						echo '<div id="QuestionTitle">';
-						echo "<h3>" . $row["subject"];
-						if ($row["username"]) {
-                            echo '<span class="username">' . $row["username"] . '</span>';
-                        } else {
-                            echo '<span class="username">Anonymous</span>';
-                        }
-						echo "</h3>";
-						echo '</div>';
-						echo '</div>';
-					}
-				?>
+
+				<?php $posts->displayQuestion($_GET["id"]); ?>
 
 			<hr id="titleBar2">
 			<h2 class="h2Titles">Answers</h2>
 			<div id="questionList" class="questionList">
-				<?php
-					while($row = $replyResult->fetch_assoc()) {
-						echo '<div id="questionSection" class="questionSection">';
-							// echo $row["post_id"];
-							echo "<p>" . $row["message"] . "</p>";
-							echo '<span class="date_posted">' . $row["date_posted"] . '</span>';
-                            if ($row["username"]) {
-                                echo '<span class="username">' . $row["username"] . '</span>';
-                            } else {
-                                echo '<span class="username">Anonymous</span>';
-                            }
-
-						echo '</div>';
-					}
-				 ?>
+				<?php $posts->displayReplies($_GET["id"]); ?>
 			</div>
 
 			<hr>
@@ -84,7 +43,7 @@ $replyResult = $conn->query($su);
 		</div>
 
 		<?php
-	include ('footer.php');
+	include ('core/footer.php');
 ?>
     </div>
 

@@ -9,8 +9,6 @@ class Config {
 
 	public function __construct() {
 		$this->setLocalConfigs();
-		// $this->setHerokuConfigs();
-		// $this->setCloud9Configs();
 	}
 
 	private function setLocalConfigs() {
@@ -33,7 +31,7 @@ class Config {
 		$this->db_pass = 'root';
 		$this->db_name = 'lab-indigo';
 	}
-	
+
 	public function getConnection() {
 		$this->conn = mysqli_connect($this->db_server, $this->db_user, $this->db_pass, $this->db_name);
 		return $this->conn;
@@ -60,5 +58,3 @@ class Config {
 // define('SB_DB_NAME', 'heroku_173da242a6954ae'); // db name
 
 // $conn = mysqli_connect(SB_DB_SERVER, SB_DB_USER, SB_DB_PASS, SB_DB_NAME);
-
-?>
