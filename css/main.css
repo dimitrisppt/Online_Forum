@@ -187,6 +187,7 @@ footer {
     max-height: 40em;
     overflow-y: scroll;
     margin-top: 4px;
+    
 
 }
 
@@ -455,6 +456,36 @@ span.user {
 
 #c5 {
     border-bottom: 1px inset black;
+
+}
+
+#questionAnswerSection {
+    margin-left: 19.7%;
+    width: 99.7%;
+}
+
+
+div.questionAnswerSectionInside {
+    width: 60%;
+    border-radius: 5px;
+    margin: 4px 0px;
+    text-align: left;
+    padding-left: 2%;
+    padding-right: 2%;
+    padding-top: 1%;
+    padding-bottom: 1%;
+    display: flex;
+   
+}
+
+
+.questionAnswerSectionInside {
+    background-color: white;
+    flex-direction: column;
+    border-style: double;
+    border-color:black;
+   
+    
 
 }
 

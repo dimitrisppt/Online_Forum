@@ -13,6 +13,7 @@ $result = null;
 if ($_GET["id"]) {
 	$q = "SELECT * FROM lab_posts WHERE post_id=" . $_GET["id"];
 	$result = $conn->query($q);
+	$subjectResult = $conn->query($q);
 
 	$su = "SELECT * FROM post_replies WHERE post_id=" . $_GET["id"];
 	$replyResult = $conn->query($su);
@@ -24,8 +25,8 @@ $replyResult = $conn->query($su);
 $SessionUser = $_SESSION["username"];
 
 
-$row = $result->fetch_assoc();
-$subject = $row["subject"];
+$subjectRow = $subjectResult->fetch_assoc();
+$subject = $subjectRow["subject"];
 
 
 ?>
@@ -34,21 +35,40 @@ $subject = $row["subject"];
 
 		<div id="Content">
 			<h2 class="h2Titles">Question</h2>
-			<hr id="titleBar">
 				<?php
+					
 					while($row = $result->fetch_assoc()) {
-						echo '<div id="QuestionSection">';
-						echo '<div id="QuestionTitle">';
-						echo "<h3>" . $row["subject"];
-						if ($row["username"]) {
-                            echo '<span class="username">' . $row["username"] . '</span>';
-                        } else {
-                            echo '<span class="username">Anonymous</span>';
-                        }
-						echo "</h3>";
+						echo '<div id="questionAnswerSection" class="questionAnswerSection">';
+							echo '<div id="questionAnswerSectionInside" class="questionAnswerSectionInside">';
+								echo '<div id="replyTitleAndMessage">';
+								
+									echo  '<div id="c5">';
+										echo '<h4>'; 
+										echo '<img src="user.png" style="width:20px; height:20px;"/>';
+										echo " " . $subject . "</h4>";
+										echo '<div id="subTitle">';
+			                                echo '<p>' . "by";
+			                                if ($row["username"]) {
+			                                    echo '<span class="user">' . " " . $row["username"] . '</span>';
+			                                } else {
+			                                    echo '<span class="user">' . " " . "Anonymous" . '</span>';
+			                                }
+			                                echo '<span class="date_posted">' . " - " . $row["date_posted"] . '</span>';
+			                                echo "</p>";
+			                             echo '</div>'; 
+		                            echo '</div>'; 
+		        				
+		        				echo '<br>';
+		                        echo '</div>';
+		                        
+		                        
+		                        echo '<div id="replySectionMessage" class="replySectionMessage">';
+		                        	echo "<p>" . $row["message"] . "</p>";
+		                        echo '</div>';
+									
+								
+							echo '</div>';
 						echo '</div>';
-						echo '</div>';
-						echo "test";
 					}
 
 					
@@ -58,6 +78,7 @@ $subject = $row["subject"];
 			
 			<h2 class="h2Titles">Answers</h2>
 			<div id="questionList" class="questionList">
+			
 				<?php
 					while($row = $replyResult->fetch_assoc()) {
 						
@@ -77,7 +98,7 @@ $subject = $row["subject"];
 			                                } else {
 			                                    echo '<span class="user">' . " " . "Anonymous" . '</span>';
 			                                }
-			                                echo '<span class="date_posted">'. $row["data_posted"] . '</span>';
+			                                echo '<span class="date_posted">' . " - " . $row["date_posted"] . '</span>';
 			                                echo "</p>";
 			                             echo '</div>'; 
 		                            echo '</div>'; 
