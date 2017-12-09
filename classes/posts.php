@@ -83,6 +83,7 @@ class Posts {
         }
 	}
 	
+	
 	public function displayQuestion($id) {
 		$result = $this->getPostByID($id);
 
@@ -124,6 +125,7 @@ class Posts {
 		}
 
 	}
+
 
 	public function displayReplies($id) {
 		$replyResult = $this->getAllReplies($id);

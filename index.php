@@ -13,16 +13,33 @@ if ($_POST["subject"] && $_POST["message"]) {
         <h3>Discussion Topics<br></h3>
     </div>
     
-    <div id="questionList" class="questionList">
-        <?php $posts->displayPosts(); ?>
+    <div id="wrapper">
+        <div id="column1">
+            <img src="img/kingsimg.png" id="kingsimg">
+        </div>
+ 
+        <div id="questionList" class="questionList">
+            <div id="column2">
+                <?php $posts->displayPosts(); ?>
+            </div>
+        </div>
+        
+       
+        
+        <div id="column3">
+            <img src="img/kingsimg.png" id="kingsimg">
+        </div>
+    
     </div>
-    <?php
-        if ($_SESSION["username"]) {
-            echo "<h5>" . "Logged in as: " . $SessionUser . "</5> <style> h5 {float:right; padding-right: 2%; font-style: italic} </style>";
-        } else {
-            echo "<h5>" . "You are not yet signed in." . "</h5> <style> h5 {float:right; padding-right: 2%; font-style: italic} </style>";
-        }
-    ?>
+        <?php
+            if ($_SESSION["username"]) {
+                echo "<h5>" . "Logged in as: " . $SessionUser . "</5> <style> h5 {float:right; padding-right: 2%; font-style: italic} </style>";
+            } else {
+                echo "<h5>" . "You are not yet signed in." . "</h5> <style> h5 {float:right; padding-right: 2%; font-style: italic} </style>";
+            }
+        ?>
+        
+        
 </div>
     
     <?php include ('core/footer.php'); ?>
