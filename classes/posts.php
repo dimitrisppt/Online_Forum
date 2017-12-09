@@ -47,9 +47,9 @@ class Posts {
 	public function displayPosts() {
 		$result = $this->getAllPosts();
 
-		while($row = $result->fetch_assoc()) {
+		while($row = $result->fetch()) {
 			$nrq = $this->conn->query("SELECT COUNT(reply_id) FROM post_replies WHERE post_id=" . $row["post_id"]);
-			$numberOfReplies = $nrq->fetch_assoc();
+			$numberOfReplies = $nrq->fetch();
 
             echo '<div id="questionSection" class="questionSection">';
                 echo  '<div id="c1">';
@@ -86,8 +86,7 @@ class Posts {
 	public function displayQuestion($id) {
 		$result = $this->getPostByID($id);
 
-
-		while($row = $result->fetch_assoc()) {
+		while($row = $result->fetch()) {
 			$this->subject = $row["subject"];
 
 			echo '<div id="questionAnswerSection" class="questionAnswerSection">';
@@ -128,7 +127,7 @@ class Posts {
 	public function displayReplies($id) {
 		$replyResult = $this->getAllReplies($id);
 
-		while($row = $replyResult->fetch_assoc()) {
+		while($row = $replyResult->fetch()) {
 						
 			echo '<div id="answerSection" class="answerSection">';
 				echo '<div id="replyTitleAndMessage">';

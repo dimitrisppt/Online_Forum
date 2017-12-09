@@ -10,15 +10,26 @@ class UserTest extends \PHPUnit_Framework_TestCase {
 		$this->assertTrue($foo);
 	}
 
-	public function testValidElements() {
+	public function testSuccessfulLogin() {
 		$conf = new Config();
-		$user = new User(mysqli_connect("localhost", "root", "root", "lab-indigo"));
+		$user = new User($conf->getConnection());
 	}
 
-	// public function testSuccessfulLogin() {
-	// 	$conf = new Config();
-	// 	$user = new User($conf->getConnection());
-	// }
+	public function testUnsuccessfulLogin() {
+
+	}
+
+	public function testSuccessfulRegister() {
+
+	}
+
+	public function testUnsuccessfulRegister() {
+		
+	}
+
+	public function testSuccessfullyGetsSignups() {
+
+	}
 	
 	
 }

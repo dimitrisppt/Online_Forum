@@ -1,14 +1,16 @@
 <?php
 
 class Config {
-	private $db_server;
-	private $db_user;
-	private $db_pass;
-	private $db_name;
-	private $conn;
+	public $db_server;
+	public $db_user;
+	public $db_pass;
+	public $db_name;
+	public $conn;
 
 	public function __construct() {
 		$this->setLocalConfigs();
+		// $this->setHerokuConfigs();
+		// $this->setCloud9Configs();
 	}
 
 	private function setLocalConfigs() {
@@ -31,30 +33,17 @@ class Config {
 		$this->db_pass = 'root';
 		$this->db_name = 'lab-indigo';
 	}
-
+	
 	public function getConnection() {
-		$this->conn = mysqli_connect($this->db_server, $this->db_user, $this->db_pass, $this->db_name);
+		$options = [
+		    PDO::ATTR_ERRMODE            => PDO::ERRMODE_EXCEPTION,
+		    PDO::ATTR_DEFAULT_FETCH_MODE => PDO::FETCH_ASSOC,
+		    PDO::ATTR_EMULATE_PREPARES   => false,
+		];
+		
+		$this->conn = new PDO("mysql:host=$this->db_server;dbname=$this->db_name", "root", "root", $options);
+
+		// $this->conn = mysqli_connect($this->db_server, $this->db_user, $this->db_pass, $this->db_name);
 		return $this->conn;
 	}
 }
-
-// Local configs
-// define('SB_DB_SERVER', 'localhost'); // db server
-// define('SB_DB_USER', 'root'); // db user
-// define('SB_DB_PASS', 'root'); // db password
-// define('SB_DB_NAME', 'lab-indigo'); // db name
-
-// Cloud 9
-// define('SB_DB_SERVER', getenv('IP')); // db server
-// define('SB_DB_USER', getenv('C9_USER')); // db user
-// define('SB_DB_PASS', '');
-// define('SB_DB_PORT', 3306); // db password
-// define('SB_DB_NAME', 'c9'); // db name
-
-// Heroku configs
-// define('SB_DB_SERVER', 'eu-cdbr-west-01.cleardb.com'); // db server
-// define('SB_DB_USER', 'b3fc62381bbceb'); // db user
-// define('SB_DB_PASS', '5b958dbe'); // db password
-// define('SB_DB_NAME', 'heroku_173da242a6954ae'); // db name
-
-// $conn = mysqli_connect(SB_DB_SERVER, SB_DB_USER, SB_DB_PASS, SB_DB_NAME);
