@@ -9,16 +9,22 @@ if ($_POST["replyMessage"]) {
 
 ?>
 
+</script>
+
 		<div id="Content">
 			<h2 class="h2Titles">Question</h2>
+
 			<hr id="titleBar">
 
 				<?php $posts->displayQuestion($_GET["id"]); ?>
 
 			<hr id="titleBar2">
+			
 			<h2 class="h2Titles">Answers</h2>
 			<div id="questionList" class="questionList">
+
 				<?php $posts->displayReplies($_GET["id"]); ?>
+
 			</div>
 
 			<hr>
@@ -40,11 +46,17 @@ if ($_POST["replyMessage"]) {
 
 				</div>
 			</div>
+			 <?php
+              
+        	 if ($_SESSION["username"]) {
+                                echo "<h5>" . "Logged in as: " . $SessionUser . "</5> <style> h5 {float:right; padding-right: 2%; font-style: italic} </style>";
+                            } else {
+                                echo "<h5>" . "You are not yet signed in." . "</h5> <style> h5 {float:right; padding-right: 2%; font-style: italic} </style>";
+                            }
+            ?>
 		</div>
 
-		<?php
-	include ('core/footer.php');
-?>
+		<?php include ('core/footer.php'); ?>
     </div>
 
 </body>
