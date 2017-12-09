@@ -10,6 +10,36 @@ class PostsTest extends \PHPUnit_Framework_TestCase {
 		$this->assertTrue($foo);
 	}
 
-	
+	public function testSuccessfulPost() {
+
+	}
+
+	public function testUnsuccessfulPost() {
+
+	}
+
+	public function testSuccessfulReply() {
+
+	}
+
+	public function testUnsuccessfulReply() {
+		
+	}
+
+	public function testGetsRepliesOfPost() {
+
+	}
+
+	public function testUnsuccessfullyGetsRepliesOfPost() {
+
+	}
+
+	public function testSuccessfullyGetsPost() {
+
+	}
+
+	public function testUnsuccessfullyGetsPost() {
+
+	}
 	
 }
