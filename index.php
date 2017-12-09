@@ -17,7 +17,7 @@ if ($_POST["subject"] && $_POST["message"]) {
         <div id="column1">
             <img src="img/kingsimg.png" id="kingsimg">
         </div>
- 
+    
         <div id="questionList" class="questionList">
             <div id="column2">
                 <?php $posts->displayPosts(); ?>
@@ -29,7 +29,7 @@ if ($_POST["subject"] && $_POST["message"]) {
         <div id="column3">
             <img src="img/kingsimg.png" id="kingsimg">
         </div>
-    
+        
     </div>
     <?php
         if ($_SESSION["username"] != "") {
