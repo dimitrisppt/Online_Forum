@@ -17,7 +17,7 @@ class User {
 
 		$query = "SELECT * FROM sign_up WHERE username='" . $this->username . "' and  password='" . $this->password . "'";
 		$res = $this->conn->query($query);
-    	$rows = $res->num_rows;
+    	$rows = count($res->fetch());
 
     	if ($rows > 0) {
     		$_SESSION['username'] = $user;
@@ -35,7 +35,7 @@ class User {
 		$su = "INSERT INTO sign_up (email, username, password) VALUES ('" . $_POST["email"] . "','" . $_POST["username"] . "','" . $_POST["password"] . "')";
     	return $this->conn->query($su);
 	}
-
+	
 	public function getAllSignups() {
 		$su = "SELECT * FROM sign_up";
 		return $this->conn->query($su);

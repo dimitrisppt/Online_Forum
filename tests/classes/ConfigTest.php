@@ -17,5 +17,13 @@ class ConfigTest extends \PHPUnit_Framework_TestCase {
 		$this->assertTrue(is_string($conf->db_name));
 	}
 	
+	// public function testSuccessfulConnection() {
+		
+	// }
+
+	// public function testUnsuccessfulConnection() {
+		
+	// }
+	
 	
 }
