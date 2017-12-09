@@ -21,7 +21,11 @@ $numberOfReplies = $nrq->fetch_assoc();
 
 <div id="Content">
             <div class="sectionTitle">
-                <p>Questions: </p>
+                <h3>
+                
+                    Discussion Topics
+                <br>
+                </h3>
             </div>
            
             

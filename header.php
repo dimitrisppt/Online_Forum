@@ -5,7 +5,7 @@
     <title>Forum</title>
     <link rel="icon" 
       type="image/png" 
-      href="logo.png" />
+      href="logodark.png" />
     <meta charset="utf-8">
     <meta http-equiv="Content-type" content="text/html; charset=utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -21,7 +21,7 @@
     <div id="MainContainer">
         <div id="HeaderContainer">
             <div id="Header">
-                <h1 id="HeaderTitle"><span> <img src="logo.png" alt="Logo" style="width:50px;height:30px;"></span></span><span> Forum</span></h1>
+                <h1 id="HeaderTitle"><span> <img src="logo1.png" alt="Logo" style="width:50px;height:30px;"></span></span><span> Forum</span></h1>
        
             </div>
             
