@@ -5,7 +5,7 @@ include('core/header.php');
 
 if ($_POST["email"] && $_POST["username"] && $_POST["password"]) {
     $user->register($_POST["username"], $_POST["password"], $_POST["email"]);
-    header("Location: ./");
+    header("Location: /login.php");
     die();
 }
 

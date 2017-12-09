@@ -26,7 +26,7 @@ class Config {
 		$this->db_pass = '5b958dbe';
 		$this->db_name = 'heroku_173da242a6954ae';
 	}
-
+	
 	private function setCloud9Configs() {
 		$this->db_server = 'localhost';
 		$this->db_user = 'root';

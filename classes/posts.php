@@ -60,7 +60,7 @@ class Posts {
                 
                 echo  '<div id="c2">';
                     echo '<h4 id="questionTitles">' . "Author" . "</h4>";
-                    echo '<img src="user.png" style="width:20px; height:20px;"/>';
+                    echo '<img src="img/user.png" style="width:20px; height:20px;"/>';
                     if ($row["username"]) {
                         echo '<span class="username">' . $row["username"] . '</span>';
                     } else {
@@ -83,6 +83,7 @@ class Posts {
         }
 	}
 	
+	
 	public function displayQuestion($id) {
 		$result = $this->getPostByID($id);
 
@@ -95,7 +96,7 @@ class Posts {
 					
 						echo  '<div id="c5">';
 							echo '<h4>'; 
-							echo '<img src="user.png" style="width:20px; height:20px;"/>';
+							echo '<img src="img/user.png" style="width:20px; height:20px;"/>';
 							echo " " . $row["subject"] . "</h4>";
 							echo '<div id="subTitle">';
                                 echo '<p>' . "by";
@@ -124,6 +125,7 @@ class Posts {
 
 	}
 
+
 	public function displayReplies($id) {
 		$replyResult = $this->getAllReplies($id);
 
@@ -136,7 +138,7 @@ class Posts {
 					
 						echo  '<div id="c5">';
 							echo '<h4>'; 
-							echo '<img src="user.png" style="width:20px; height:20px;"/>';
+							echo '<img src="img/user.png" style="width:20px; height:20px;"/>';
 							echo " RE: " . $this->subject . "</h4>";
 							echo '<div id="subTitle">';
                                 echo '<p>' . "by";
