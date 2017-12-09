@@ -4,15 +4,29 @@ include('config.php');
 include('header.php');
 session_start();
 
-if ($_POST["email"] && $_POST["username"] && $_POST["password"]) {
+$username = $_POST['username'];
+$sql      = " SELECT * FROM sign_up WHERE username = '" . $username . "'" ;
+$res      =  $conn->query($sql);
+//$database = new mysqli("localhost", "user", "dbpw", "dbname");
+//$email = $database->real_escape_string(htmlspecialchars($_POST["email"]));
+//$query = "SELECT email FROM sign_up WHERE email =$email";
+//$resulta = $database->query($query);
+//$numOfRows = $database->num_rows($resulta);
+$su = "SELECT * FROM sign_up";
+$result = $conn->query($su);
+
+
+if ($result = mysqli_num_rows($res) > 0 //|| $numOfRows > 0)    {
+    ) {
+    echo "<strong>This email or username already exists! </strong" ;
+    
+} else if ($_POST["email"] && $_POST["username"] && $_POST["password"]) {
     $su = "INSERT INTO sign_up (email, username, password) VALUES ('" . $_POST["email"] . "','" . $_POST["username"] . "','" . $_POST["password"] . "')";
     $conn->query($su);
     header("Location: ./");
     die();
 }
 
-$su = "SELECT * FROM sign_up";
-$result = $conn->query($su);
 
 ?>
 
