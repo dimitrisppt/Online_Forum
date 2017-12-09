@@ -26,10 +26,10 @@ class Config {
 	}
 
 	private function setCloud9Configs() {
-		$this->db_server = 'localhost';
-		$this->db_user = 'root';
-		$this->db_pass = 'root';
-		$this->db_name = 'lab-indigo';
+		$this->db_server = getenv('IP');
+		$this->db_user = getenv('C9_USER');
+		$this->db_pass = '';
+		$this->db_name = 'c9';
 	}
 
 	public function getConnection() {
