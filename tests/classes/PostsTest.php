@@ -1,7 +1,7 @@
 <?php
 
-namespace tests\classes;
-use classes\Posts;
+require_once('classes/User.php');
+require_once('classes/Posts.php');
 
 class PostsTest extends \PHPUnit_Framework_TestCase {
 
@@ -23,7 +23,7 @@ class PostsTest extends \PHPUnit_Framework_TestCase {
 	}
 
 	public function testUnsuccessfulReply() {
-		
+
 	}
 
 	public function testGetsRepliesOfPost() {
