@@ -21,8 +21,8 @@
     <div id="MainContainer">
         <div id="HeaderContainer">
             <div id="Header">
-                <h1 id="HeaderTitle"><span> <img src="logo1.png" alt="Logo" style="width:50px;height:30px;"></span></span><span> Forum</span></h1>
-       
+                <h1 id="HeaderTitle"><span> <img src="logo1.png" alt="Logo" style="width:50px;height:30px;"></span></span><span> Forum</span><img src="kingslogo.png" alt="Logo" style="width:60px;height:40px;float:right;margin-right:1%;"></h1>
+                
             </div>
             
              <div id="navigation">

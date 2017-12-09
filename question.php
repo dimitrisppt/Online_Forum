@@ -32,112 +32,125 @@ $subject = $subjectRow["subject"];
 ?>
 
 </script>
-
+		
 		<div id="Content">
-			<h2 class="h2Titles">Question</h2>
-				<?php
+		
+					<h2 class="h2Titles">Question</h2>
+						<?php
+							
+							while($row = $result->fetch_assoc()) {
+								echo '<div id="questionAnswerSection" class="questionAnswerSection">';
+									echo '<div id="questionAnswerSectionInside" class="questionAnswerSectionInside">';
+										echo '<div id="replyTitleAndMessage">';
+										
+											echo  '<div id="c5">';
+												echo '<h4>'; 
+												echo '<img src="user.png" style="width:20px; height:20px;"/>';
+												echo " " . $subject . "</h4>";
+												echo '<div id="subTitle">';
+					                                echo '<p>' . "by";
+					                                if ($row["username"]) {
+					                                    echo '<span class="user">' . " " . $row["username"] . '</span>';
+					                                } else {
+					                                    echo '<span class="user">' . " " . "Anonymous" . '</span>';
+					                                }
+					                                echo '<span class="date_posted">' . " - " . $row["date_posted"] . '</span>';
+					                                echo "</p>";
+					                             echo '</div>'; 
+				                            echo '</div>'; 
+				        				
+				        				echo '<br>';
+				                        echo '</div>';
+				                        
+				                        
+				                        echo '<div id="replySectionMessage" class="replySectionMessage">';
+				                        	echo "<p>" . $row["message"] . "</p>";
+				                        echo '</div>';
+											
+										
+									echo '</div>';
+								echo '</div>';
+							}
+		
+							
+						?>
+		
+					<hr id="titleBar2">
 					
-					while($row = $result->fetch_assoc()) {
-						echo '<div id="questionAnswerSection" class="questionAnswerSection">';
-							echo '<div id="questionAnswerSectionInside" class="questionAnswerSectionInside">';
-								echo '<div id="replyTitleAndMessage">';
-								
-									echo  '<div id="c5">';
-										echo '<h4>'; 
-										echo '<img src="user.png" style="width:20px; height:20px;"/>';
-										echo " " . $subject . "</h4>";
-										echo '<div id="subTitle">';
-			                                echo '<p>' . "by";
-			                                if ($row["username"]) {
-			                                    echo '<span class="user">' . " " . $row["username"] . '</span>';
-			                                } else {
-			                                    echo '<span class="user">' . " " . "Anonymous" . '</span>';
-			                                }
-			                                echo '<span class="date_posted">' . " - " . $row["date_posted"] . '</span>';
-			                                echo "</p>";
-			                             echo '</div>'; 
-		                            echo '</div>'; 
-		        				
-		        				echo '<br>';
-		                        echo '</div>';
-		                        
-		                        
-		                        echo '<div id="replySectionMessage" class="replySectionMessage">';
-		                        	echo "<p>" . $row["message"] . "</p>";
-		                        echo '</div>';
-									
-								
-							echo '</div>';
-						echo '</div>';
-					}
-
+						<div id="wrapper">
+                 <div id="column1ans">
+                        <img src="kingsimg.png" id="kingsimgAns">
+                 </div>
+                 
+                  <div id="column2">  
+					<h2 class="h2AnswerTitles" style="float=left;">Answers</h2>
+					<div id="answerList" class="answerList">
 					
-				?>
-
-			<hr id="titleBar2">
-			
-			<h2 class="h2Titles">Answers</h2>
-			<div id="questionList" class="questionList">
-			
-				<?php
-					while($row = $replyResult->fetch_assoc()) {
-						
-						echo '<div id="answerSection" class="answerSection">';
-							echo '<div id="replyTitleAndMessage">';
-								echo '<div id="replySectionTitle" class="replySectionTitle">';
-								echo '<br>';
+						<?php
+							while($row = $replyResult->fetch_assoc()) {
 								
-									echo  '<div id="c5">';
-										echo '<h4>'; 
-										echo '<img src="user.png" style="width:20px; height:20px;"/>';
-										echo " RE: " . $subject . "</h4>";
-										echo '<div id="subTitle">';
-			                                echo '<p>' . "by";
-			                                if ($row["username"]) {
-			                                    echo '<span class="user">' . " " . $row["username"] . '</span>';
-			                                } else {
-			                                    echo '<span class="user">' . " " . "Anonymous" . '</span>';
-			                                }
-			                                echo '<span class="date_posted">' . " - " . $row["date_posted"] . '</span>';
-			                                echo "</p>";
-			                             echo '</div>'; 
-		                            echo '</div>'; 
-		        				
-		        				echo '<br>';
+								echo '<div id="answerSection" class="answerSection">';
+									echo '<div id="replyTitleAndMessage">';
+										echo '<div id="replySectionTitle" class="replySectionTitle">';
+										echo '<br>';
+										
+											echo  '<div id="c5">';
+												echo '<h4>'; 
+												echo '<img src="user.png" style="width:20px; height:20px;"/>';
+												echo " RE: " . $subject . "</h4>";
+												echo '<div id="subTitle">';
+					                                echo '<p>' . "by";
+					                                if ($row["username"]) {
+					                                    echo '<span class="user">' . " " . $row["username"] . '</span>';
+					                                } else {
+					                                    echo '<span class="user">' . " " . "Anonymous" . '</span>';
+					                                }
+					                                echo '<span class="date_posted">' . " - " . $row["date_posted"] . '</span>';
+					                                echo "</p>";
+					                             echo '</div>'; 
+				                            echo '</div>'; 
+				        				
+				        				echo '<br>';
+				                        echo '</div>';
+				                        
+				                        
+				                        echo '<div id="replySectionMessage" class="replySectionMessage">';
+				                        	echo "<p>" . $row["message"] . "</p>";
+				                        echo '</div>';
+				                        echo '<br>';
+				                	echo '</div>';
 		                        echo '</div>';
-		                        
-		                        
-		                        echo '<div id="replySectionMessage" class="replySectionMessage">';
-		                        	echo "<p>" . $row["message"] . "</p>";
-		                        echo '</div>';
-		                        echo '<br>';
-		                	echo '</div>';
-                        echo '</div>';
-               
-						
-					}
-				 ?>
-			</div>
-
-			<hr>
-
-
-			<div id="ReplyContent" class="ReplyContent">
-				<div id="Reply">
-					<h3>Add your Answer</h3>
-					<form action="./question.php?id=<?php echo $_GET["id"]; ?>" method="post">
-						<div class="form-group"> <!-- Message field -->
-							<label class="control-label " for="replyMessage">Reply Message</label>
-							<textarea class="form-control" cols="40" id="replyMessage" name="replyMessage" rows="10"></textarea>
+		               
+								
+							}
+						 ?>
+					</div>
+		
+					<hr>
+		
+		
+					<div id="ReplyContent" class="ReplyContent">
+						<div id="Reply">
+							<h3>Add your Answer</h3>
+							<form action="./question.php?id=<?php echo $_GET["id"]; ?>" method="post">
+								<div class="form-group"> <!-- Message field -->
+									<label class="control-label " for="replyMessage">Reply Message</label>
+									<textarea class="form-control" cols="40" id="replyMessage" name="replyMessage" rows="10"></textarea>
+								</div>
+								<div class="form-group">
+									<button class="btn btn-primary " name="submit" type="submit">Reply</button>
+								</div>
+		
+							</form>
+		
 						</div>
-						<div class="form-group">
-							<button class="btn btn-primary " name="submit" type="submit">Reply</button>
-						</div>
-
-					</form>
-
+					</div>
 				</div>
-			</div>
+				
+				 <div id="column3ans">
+                         <img src="kingsimg.png" id="kingsimgAns">
+                 </div>
+            </div>
 			 <?php
               
         	 if ($_SESSION["username"]) {

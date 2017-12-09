@@ -24,6 +24,7 @@ $SessionUser = $_SESSION["username"];
 						</form>
 					</div>
 				</div> -->
+			
 				<div id="Content">
 					<div id="AddPostContent" class="AddPostContent">
 						<div id="AddPost">
