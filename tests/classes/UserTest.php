@@ -11,8 +11,8 @@ class UserTest extends \PHPUnit_Framework_TestCase {
 	}
 
 	public function testSuccessfulLogin() {
-		$conf = new Config();
-		$user = new User($conf->getConnection());
+		// $conf = new Config();
+		// $user = new User($conf->getConnection());
 	}
 
 	public function testUnsuccessfulLogin() {
