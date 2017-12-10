@@ -10,7 +10,6 @@ if ($_POST["replyMessage"]) {
 ?>
 
 </script>
-
 		<div id="Content">
 			<h2 class="h2Titles">Question</h2>
 
@@ -58,7 +57,7 @@ if ($_POST["replyMessage"]) {
 	
 					</div>
 				</div>
-			</div>
+
 			 <?php             
 				if ($_SESSION["username"]) {
 					echo "<h5>" . "Logged in as: " . $_SESSION["username"] . "</5> <style> h5 {float:right; padding-right: 2%; font-style: italic} </style>";
