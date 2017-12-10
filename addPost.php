@@ -3,8 +3,6 @@
 require_once('core/init.php');
 include('core/header.php');
 
-$result = $posts->getAllReplies($_GET["id"]);
-
 $SessionUser = $_SESSION["username"];
 
 ?>
