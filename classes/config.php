@@ -8,8 +8,8 @@ class Config {
 	public $conn;
 
 	public function __construct() {
-		$this->setLocalConfigs();
-		// $this->setCloud9Configs();
+		// $this->setLocalConfigs();
+		$this->setCloud9Configs();
 		// $this->setHerokuConfigs();
 	}
 
