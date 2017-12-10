@@ -41,7 +41,7 @@ class Config {
 		    PDO::ATTR_EMULATE_PREPARES   => false,
 		];
 		
-		$this->conn = new PDO("mysql:host=$this->db_server;dbname=$this->db_name", "root", "root", $options);
+		$this->conn = new PDO("mysql:host=$this->db_server;dbname=$this->db_name", $this->db_user, $this->db_pass, $options);
 
 		// $this->conn = mysqli_connect($this->db_server, $this->db_user, $this->db_pass, $this->db_name);
 		return $this->conn;
