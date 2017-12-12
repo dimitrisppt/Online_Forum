@@ -51,13 +51,23 @@ class UserTest extends PHPUnit_Framework_TestCase {
 		$this->assertEquals(false, $userExists);
 	}
 
-	public function testLoginNewUserRegisters() {
+	public function testRegisterNewUser() {
 		$username = "bradley.cooper@kcl.ac.uk";
 		$name = "Cooper, Bradley";
 
-		// $result = self::$user->register($username, $name);
-		
+		$result = self::$user->register($username, $name);
+		$newUser = self::$user->getUser($username)->fetch();
+
+		$this->assertNotEmpty($result);
+		$this->assertEquals($username, $newUser["username"]);
+		$this->assertEquals($name, $newUser["preferred_name"]);
 	}
 
+	public function testRegisterExistingUser() {
+		$username = "george.bush@kcl.ac.uk";
+		$name = "Bush, George";
 
+		$result = self::$user->register($username, $name)->fetch();
+		$this->assertEmpty($result);
+	}
 }

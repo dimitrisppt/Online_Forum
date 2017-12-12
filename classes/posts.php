@@ -49,6 +49,11 @@ class Posts {
 		return $this->conn->query($q);
 	}
 
+	public function getReply($postID, $replyID) {
+		$q = "SELECT * FROM post_replies WHERE reply_id='" . $id . "' AND post_id='" . $postID . "'";
+		return $this->conn->query($q);	
+	}
+
 
 
 	public function displayPosts() {

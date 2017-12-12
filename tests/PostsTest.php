@@ -81,7 +81,7 @@ class ConfigTest extends PHPUnit_Framework_TestCase {
 		$this->assertEquals($name, $row["preferred_name"]);
 		$this->assertEquals(3, $row["post_id"]);
 	}
-
+	
 	public function testRejectsEmptySubjectWhenMakingPost() {
 		$subj = "";
 		$msg = "Test Message";
@@ -125,7 +125,7 @@ class ConfigTest extends PHPUnit_Framework_TestCase {
 		$this->assertEquals($name, $row["preferred_name"]);
 		$this->assertEquals($user, $row["username"]);
 	}
-		
+	
 	public function testRejectsEmptyReplyToPost() {
 		$reply = "";
 		$id = 2;
@@ -190,6 +190,22 @@ class ConfigTest extends PHPUnit_Framework_TestCase {
 		$r = self::$posts->getAllReplies($id)->fetch();
 
 		$this->assertEmpty($r);
+	}
+
+	public function testMakesPostAndRepliesSuccessfully() {
+		// Make Post
+		self::$posts->makePost("Test Post", "Test Message", "user1@kcl.ac.uk", "Travoltor, John");
+
+		// Reply to post
+		self::$posts->replyToPost("Test Reply", 3, "user2@kcl.ac.uk", "Bush, George");
+
+		// Checks Reply
+		$reply = self::$posts->getReply(3, 1)->fetch();
+
+		$this->assertEquals(1, $reply["reply_id"]);
+		$this->assertEquals("Test Reply", $reply["message"]);
+		$this->assertEquals(3, $reply["post_id"]);
+		$this->assertEquals("Bush, George", $reply["preferred_name"]);
 	}
 
 
