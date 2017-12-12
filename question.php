@@ -4,7 +4,7 @@ require_once('core/init.php');
 include('core/header.php');
 
 if ($_POST["replyMessage"]) {
-    $posts->replyToPost($_POST["replyMessage"], $_GET["id"], $_SESSION["username"]);
+    $posts->replyToPost($_POST["replyMessage"], $_GET["id"], $_SESSION["username"], $_SESSION["given_name"]);
 }
 
 ?>

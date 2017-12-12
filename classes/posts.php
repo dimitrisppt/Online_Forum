@@ -12,25 +12,25 @@ class Posts {
 		$this->conn = $conn;
 	}
 
-	public function makePost($sub, $msg, $user) {
+	public function makePost($sub, $msg, $user, $name) {
 		$this->subject = $sub;
 		$this->message = $msg;
 		$this->username = $user;
-		$this->postDate = date("Y-m-d");
+		$this->postDate = date("Y-m-d H:i:s");
 
 		if (trim($sub) === '' || trim($msg) === '') {
 			return null;
 		}
 
-		$q = "INSERT INTO lab_posts (subject, message, username, data_posted) VALUES ('" . $this->subject . "','" . $this->message . "','" . $this->username . "','" . $this->postDate . "')";
+		$q = "INSERT INTO lab_posts (subject, message, username, preferred_name, date_posted) VALUES ('" . $this->subject . "','" . $this->message . "','" . $this->username . "','" . $name . "','" . $this->postDate . "')";
 		return $this->conn->query($q);
 	}
 
-	public function replyToPost($reply, $id, $user) {
+	public function replyToPost($reply, $id, $user, $name) {
 		if (trim($reply) === "") {
 			return null;
 		}
-		$su = "INSERT INTO post_replies (message, post_id, username, date_posted) VALUES ('" . $reply . "','" . $id . "','" . $user . "','" . date("Y-m-d") . "')";
+		$su = "INSERT INTO post_replies (message, post_id, username, preferred_name, date_posted) VALUES ('" . $reply . "','" . $id . "','" . $user . "','" . $name . "','" . date("Y-m-d H:i:s") . "')";
     	return $this->conn->query($su);
 	}
 
@@ -45,7 +45,7 @@ class Posts {
 	}
 	
 	public function getAllReplies($id) {
-		$q = "SELECT * FROM post_replies WHERE post_id=" . $id;
+		$q = "SELECT * FROM post_replies WHERE post_id=" . $id . " ORDER BY reply_id DESC";
 		return $this->conn->query($q);
 	}
 
@@ -68,8 +68,8 @@ class Posts {
                 echo  '<div id="c2">';
                     echo '<h4 id="questionTitles">' . "Author" . "</h4>";
                     echo '<img src="img/user.png" style="width:20px; height:20px;"/>';
-                    if ($row["username"]) {
-                        echo '<span class="username">' . $row["username"] . '</span>';
+                    if ($row["preferred_name"]) {
+                        echo '<span class="username">' . $row["preferred_name"] . '</span>';
                     } else {
                         echo '<span class="username">Anonymous</span>';
                     }
@@ -82,7 +82,9 @@ class Posts {
                 
                 echo  '<div id="c4">';
                     echo '<h4 id="questionTitles">' . "Date Posted" . "</h4>";
-                    echo '<span class="date_posted">' . $row["data_posted"] . '</span>';
+                    $d = explode(" ", $row["date_posted"])[0];
+                    $t = explode(" ", $row["date_posted"])[1];
+                    echo '<span class="date_posted">' . $d . "<br>" . $t . '</span>';
                 echo '</div>';
                         
             echo '</div>';
@@ -107,12 +109,14 @@ class Posts {
 							echo " " . $row["subject"] . "</h4>";
 							echo '<div id="subTitle">';
                                 echo '<p>' . "by";
-                                if ($row["username"]) {
-                                    echo '<span class="user">' . " " . $row["username"] . '</span>';
+                                if ($row["preferred_name"]) {
+                                    echo '<span class="user">' . " " . $row["preferred_name"] . '</span>';
                                 } else {
                                     echo '<span class="user">' . " " . "Anonymous" . '</span>';
                                 }
-                                echo '<span class="date_posted">' . " - " . $row["date_posted"] . '</span>';
+                                $d = explode(" ", $row["date_posted"])[0];
+                    			$t = explode(" ", $row["date_posted"])[1];
+                                echo '<span class="date_posted">' . " - <strong>Date: </strong>" . $d . "<strong> Time: </strong>" . $t . '</span>';
                                 echo "</p>";
                              echo '</div>'; 
                         echo '</div>'; 
@@ -149,8 +153,8 @@ class Posts {
 							echo " RE: " . $this->subject . "</h4>";
 							echo '<div id="subTitle">';
                                 echo '<p>' . "by";
-                                if ($row["username"]) {
-                                    echo '<span class="user">' . " " . $row["username"] . '</span>';
+                                if ($row["preferred_name"]) {
+                                    echo '<span class="user">' . " " . $row["preferred_name"] . '</span>';
                                 } else {
                                     echo '<span class="user">' . " " . "Anonymous" . '</span>';
                                 }

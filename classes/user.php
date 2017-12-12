@@ -1,9 +1,8 @@
 <?php
 
 class User {
-	private $username;
-	private $password;
-	private $email;
+	private $username; // Email
+	private $name;
 
 	private $conn;
 
@@ -11,11 +10,11 @@ class User {
 		$this->conn = $conn;
 	}
 
-	public function login($user, $pass) {
+	public function login($user, $name) {
 		$this->username = $user;
-		$this->password = $pass;
+		$this->name = $name;
 
-		$query = "SELECT * FROM sign_up WHERE username='" . $this->username . "' and  password='" . $this->password . "'";
+		$query = "SELECT * FROM users WHERE username='" . $this->username . "' and  preferred_name='" . $this->name . "'";
 		$res = $this->conn->query($query);
     	$rows = $res->fetchColumn();
 
@@ -23,21 +22,21 @@ class User {
     		$_SESSION['username'] = $user;
     		return true;
     	} else {
+    		$this->register($user, $name);
     		return false;
     	}
 	}
 
-	public function register($user, $pass, $email) {
+	public function register($user, $name) {
 		$this->username = $user;
-		$this->password = $pass;
-		$this->email = $email;
+		$this->name = $name;
 
-		$su = "INSERT INTO sign_up (email, username, password) VALUES ('" . $_POST["email"] . "','" . $_POST["username"] . "','" . $_POST["password"] . "')";
+		$su = "INSERT INTO users (username, preferred_name) VALUES ('" . $this->username . "','" . $this->name . "')";
     	return $this->conn->query($su);
 	}
 	
-	public function getAllSignups() {
-		$su = "SELECT * FROM sign_up";
+	public function getAllUsers() {
+		$su = "SELECT * FROM users";
 		return $this->conn->query($su);
 	}
 
