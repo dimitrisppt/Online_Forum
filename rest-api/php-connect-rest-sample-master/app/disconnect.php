@@ -28,6 +28,7 @@ if (session_status() == PHP_SESSION_NONE) {
 session_destroy();
         
 $connectUrl = 'https://indigo-lab.herokuapp.com/index.php';
+// $connectUrl = 'http://localhost:8080/index.php';
 
 header('Location: ' . $connectUrl);
 exit();

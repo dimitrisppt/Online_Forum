@@ -12,7 +12,7 @@ class Config {
 		// $this->setCloud9Configs();
 		$this->setHerokuConfigs();
 		
-		$_ENV['APP_URL'] = 'https://indigo-lab.herokuapp.com';
+		// $_ENV['APP_URL'] = 'https://indigo-lab.herokuapp.com';
 	}
 	
 	private function setLocalConfigs() {
