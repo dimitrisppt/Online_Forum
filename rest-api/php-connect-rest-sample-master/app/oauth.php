@@ -44,7 +44,6 @@ if ($_SERVER['REQUEST_METHOD'] === 'GET' && !isset($_GET['code']) && !isset($_GE
     $_SESSION['state'] = $provider->getState();
 
     header('Location: ' . $authorizationUrl);
-    
     exit();
 } elseif ($_SERVER['REQUEST_METHOD'] === 'GET' && isset($_GET['error'])) {
     // Answer from the authentication service contains an error.

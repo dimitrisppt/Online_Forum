@@ -8,11 +8,12 @@ class Config {
 	public $conn;
 
 	public function __construct() {
-		// $this->setLocalConfigs();
-		$this->setCloud9Configs();
+		$this->setLocalConfigs();
+		// $this->setCloud9Configs();
 		// $this->setHerokuConfigs();
 		
-		$_ENV['APP_URL'] = 'https://indigo-dimitrisppt.c9users.io';
+		// $_ENV['APP_URL'] = 'https://indigo-ozfarooqi.c9users.io';
+		// $_ENV['APP_URL'] = 'https://indigo-ozfarooqi.c9users.io';
 	}
 	
 	private function setLocalConfigs() {
