@@ -17,7 +17,6 @@ class User {
 
 		$query = "SELECT * FROM sign_up WHERE username='" . $this->username . "' and  password='" . $this->password . "'";
 		$res = $this->conn->query($query);
-    	// $rows = count($res->fetch());
     	$rows = $res->fetchColumn();
 
     	if ($rows > 0) {
