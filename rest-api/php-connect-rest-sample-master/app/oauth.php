@@ -17,8 +17,7 @@
               Azure Active Directory (AD) finishes the authentication flow.
  */
 
-// require_once __DIR__ . '/../vendor/autoload.php';
-require_once("../vendor/autoload.php");
+require_once __DIR__ . '/../vendor/autoload.php';
 
 use Microsoft\Graph\Connect\Constants;
 
