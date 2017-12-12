@@ -43,7 +43,7 @@
                           <li class="dropdown" style="float:right">
                             <a href="javascript:void(0)" class="dropbtn">Login/ Sign Up</a>
                             <div class="dropdown-content" style="float:left">
-                              <a href="<?php echo 'login.php'; ?>">Login</a>
+                              <a href="<?php echo './rest-api/php-connect-rest-sample-master/app/oauth.php'; ?>">Login</a>
                               <a href="<?php echo 'signup.php'; ?>">Sign Up</a>
                             </div>
                           </li>

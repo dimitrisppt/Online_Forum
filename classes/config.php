@@ -11,6 +11,8 @@ class Config {
 		// $this->setLocalConfigs();
 		$this->setCloud9Configs();
 		// $this->setHerokuConfigs();
+		
+		$_ENV['APP_URL'] = 'https://indigo-dimitrisppt.c9users.io';
 	}
 	
 	private function setLocalConfigs() {
