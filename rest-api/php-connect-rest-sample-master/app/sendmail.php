@@ -75,7 +75,7 @@ $greetingName = isset($_SESSION['given_name'])
             Hi, <?php echo $greetingName; ?>!
         </h2>
         <p class="ms-font-xl">
-            You're now connected to Microsoft Graph. Click the button below to send a 
+            You're now connected to Forum Indigo. Click the button below to send a 
             message from your account using the Microsoft Graph.
         </p>
         <div class="ms-TextField">
