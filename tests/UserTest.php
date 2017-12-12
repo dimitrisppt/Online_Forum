@@ -15,6 +15,49 @@ class UserTest extends PHPUnit_Framework_TestCase {
 		self::$user = new User(self::$conn);
 	}
 
+	public function setUp() {
+		// Create users table
+		$usersTableQuery = "CREATE TEMPORARY TABLE `users` (
+							  `user_id` int(11) NOT NULL AUTO_INCREMENT PRIMARY KEY,
+							  `username` varchar(50) NOT NULL,
+							  `preferred_name` varchar(50) NOT NULL
+							)";
+		self::$conn->query($usersTableQuery);
+
+		$populateUsersQuery = "INSERT INTO `users` (`user_id`, `username`, `preferred_name`) VALUES
+								(1, 'george.bush@kcl.ac.uk', 'Bush, George'),
+								(2, 'will.smith@kcl.ac.uk', 'Smith, Will')";
+		self::$conn->query($populateUsersQuery);
+	}
+
+	public function tearDown() {
+		$dropUsersQuery = "DROP TABLE IF EXISTS users";
+		self::$conn->query($dropUsersQuery);
+	}
+
+	public function testLoginExistingUser() {
+		$username = "george.bush@kcl.ac.uk";
+		$name = "Bush, George";
+
+		$userExists = self::$user->login($username, $name);
+		$this->assertEquals(true, $userExists);
+	}
+
+	public function testLoginNewUser() {
+		$username = "bradley.cooper@kcl.ac.uk";
+		$name = "Cooper, Bradley";
+
+		$userExists = self::$user->login($username, $name);
+		$this->assertEquals(false, $userExists);
+	}
+
+	public function testLoginNewUserRegisters() {
+		$username = "bradley.cooper@kcl.ac.uk";
+		$name = "Cooper, Bradley";
+
+		$userExists = self::$user->register($username, $name);
+
+	}
 
 
 }

@@ -27,7 +27,7 @@ if (session_status() == PHP_SESSION_NONE) {
 }
 session_destroy();
         
-$connectUrl = 'https://indigo-dimitrisppt.c9users.io/index.php';
+$connectUrl = 'http://localhost:8000/index.php';
 
 header('Location: ' . $connectUrl);
 exit();

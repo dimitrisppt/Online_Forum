@@ -23,15 +23,16 @@ class ConfigTest extends PHPUnit_Framework_TestCase {
 						  `post_id` int(11) NOT NULL AUTO_INCREMENT PRIMARY KEY,
 						  `subject` text NOT NULL,
 						  `message` text NOT NULL,
-						  `username` varchar(15) DEFAULT NULL,
-						  `data_posted` date NOT NULL
+						  `username` varchar(50) DEFAULT NULL,
+  						  `preferred_name` varchar(50) NOT NULL,
+						  `date_posted` datetime NOT NULL
 						)";
 		self::$conn->query($labPostsQuery);
 
 		// Populate lab_posts
-		$populatePostsQuery = "INSERT INTO `lab_posts` (`post_id`, `subject`, `message`, `username`, `data_posted`) VALUES
-								(1, 'PEP Assignment 9', 'How do you do it?', 'user1', '2017-12-05'),
-								(2, 'Lab Project Issues', 'Can I not do it?', 'user2', '2017-12-05')";
+		$populatePostsQuery = "INSERT INTO `lab_posts` (`post_id`, `subject`, `message`, `username`, `preferred_name`, `date_posted`) VALUES
+								(1, 'PEP Assignment 9', 'How do you do it?', 'user1@kcl.ac.uk', 'Travoltor, John', '2017-12-05 00:00:00'),
+								(2, 'Lab Project Issues', 'Can I not do it?', 'user2@kcl.ac.uk', 'Bush, George', '2017-12-05 00:00:00')";
 		self::$conn->query($populatePostsQuery);
 
 		
@@ -40,15 +41,16 @@ class ConfigTest extends PHPUnit_Framework_TestCase {
 							  `reply_id` int(11) NOT NULL PRIMARY KEY AUTO_INCREMENT,
 							  `message` text NOT NULL,
 							  `post_id` int(11) NOT NULL,
-							  `username` varchar(15) DEFAULT NULL,
-							  `date_posted` date NOT NULL
+							  `username` varchar(50) DEFAULT NULL,
+							  `preferred_name` varchar(50) NOT NULL,
+							  `date_posted` datetime NOT NULL
 							)";
 		self::$conn->query($postRepliesQuery);
 
 		// Populate post_replies
-		$populateRepliesQuery = "INSERT INTO `post_replies` (`reply_id`, `message`, `post_id`, `username`, `date_posted`) VALUES
-								(1, 'No clue bro', 1, 'user1', '2017-12-05'),
-								(2, 'yes', 1, 'user2', '2017-12-05')";
+		$populateRepliesQuery = "INSERT INTO `post_replies` (`reply_id`, `message`, `post_id`, `username`, `preferred_name`, `date_posted`) VALUES
+								(1, 'No clue bro', 1, 'user1@kcl.ac.uk', 'Travoltor, John', '2017-12-05 00:00:00'),
+								(2, 'yes', 1, 'user2@kcl.ac.uk', 'Bush, George', '2017-12-05 00:00:00')";
 		self::$conn->query($populateRepliesQuery);
 	}
 
@@ -64,8 +66,9 @@ class ConfigTest extends PHPUnit_Framework_TestCase {
 		$subj = "Test Post";
 		$msg = "Test Message";
 		$user = "";
+		$name = "Kennedy, John";
 
-		$madePost = self::$posts->makePost($subj, $msg, $user);
+		$madePost = self::$posts->makePost($subj, $msg, $user, $name);
 
 		$q = "SELECT * FROM lab_posts WHERE subject='" . $subj . "' AND message='" . $msg . "'";
 		$res = self::$conn->query($q);
@@ -75,29 +78,32 @@ class ConfigTest extends PHPUnit_Framework_TestCase {
 		$this->assertEquals($subj, $row["subject"]);
 		$this->assertEquals($msg, $row["message"]);
 		$this->assertEquals($user, $row["username"]);
+		$this->assertEquals($name, $row["preferred_name"]);
 		$this->assertEquals(3, $row["post_id"]);
 	}
 
 	public function testRejectsEmptySubjectWhenMakingPost() {
 		$subj = "";
 		$msg = "Test Message";
-		$user = "user2";
+		$user = "user2@kcl.ac.uk";
+		$name = "Kennedy, John";
 
-		$madePost = self::$posts->makePost($subj, $msg, $user);
+		$madePost = self::$posts->makePost($subj, $msg, $user, $name);
 		$this->assertNull($madePost);
 	}
 
 	public function testRejectsEmptyMessageWhenMakingPost() {
 		$subj = "Test Post";
 		$msg = "";
-		$user = "user2";
+		$user = "user2@kcl.ac.uk";
+		$name = "Kennedy, John";
 
-		$madePost = self::$posts->makePost($subj, $msg, $user);
+		$madePost = self::$posts->makePost($subj, $msg, $user, $name);
 		$this->assertNull($madePost);
 	}
 
 	public function testRejectsFullyEmptyPost() {
-		$madePost = self::$posts->makePost("", "", "");
+		$madePost = self::$posts->makePost("", "", "", "");
 		$this->assertNull($madePost);
 	}
 
@@ -105,8 +111,9 @@ class ConfigTest extends PHPUnit_Framework_TestCase {
 		$reply = "Test Reply";
 		$id = 2;
 		$user = "";
+		$name = "Kennedy, John";
 
-		self::$posts->replyToPost($reply, $id, $user);
+		self::$posts->replyToPost($reply, $id, $user, $name);
 
 		$q = "SELECT * FROM post_replies WHERE post_id='" . $id . "' AND message='" . $reply . "' AND username='" . $user . "'";
 		$res = self::$conn->query($q);
@@ -115,15 +122,17 @@ class ConfigTest extends PHPUnit_Framework_TestCase {
 		$this->assertEquals(3, $row["reply_id"]);
 		$this->assertEquals($reply, $row["message"]);
 		$this->assertEquals($id, $row["post_id"]);
+		$this->assertEquals($name, $row["preferred_name"]);
 		$this->assertEquals($user, $row["username"]);
 	}
 		
 	public function testRejectsEmptyReplyToPost() {
 		$reply = "";
 		$id = 2;
-		$user = "user1";
+		$user = "user1@kcl.ac.uk";
+		$name = "Travoltor, John";
 
-		$madeReply = self::$posts->replyToPost($reply, $id, $user);
+		$madeReply = self::$posts->replyToPost($reply, $id, $user, $name);
 		$this->assertNull($madeReply);
 	}
 
@@ -134,10 +143,9 @@ class ConfigTest extends PHPUnit_Framework_TestCase {
 		while ($row = $result->fetch(PDO::FETCH_ASSOC)) {
 			$allPosts[] = $row;
 		}
-
 		$this->assertEquals(array(
-								array("post_id" => 1, "subject" => "PEP Assignment 9", "message" => "How do you do it?", "username" => "user1", "data_posted" => "2017-12-05"),
-								array("post_id" => 2, "subject" => "Lab Project Issues", "message" => "Can I not do it?", "username" => "user2", "data_posted" => "2017-12-05")),
+								array("post_id" => 1, "subject" => "PEP Assignment 9", "message" => "How do you do it?", "username" => "user1@kcl.ac.uk", "preferred_name" => "Travoltor, John", "date_posted" => "2017-12-05 00:00:00"),
+								array("post_id" => 2, "subject" => "Lab Project Issues", "message" => "Can I not do it?", "username" => "user2@kcl.ac.uk", "preferred_name" => "Bush, George", "date_posted" => "2017-12-05 00:00:00")),
 							$allPosts);
 	}
 
@@ -149,8 +157,9 @@ class ConfigTest extends PHPUnit_Framework_TestCase {
 									"post_id" => 2,
 									"subject" => "Lab Project Issues", 
 									"message" => "Can I not do it?", 
-									"username" => "user2", 
-									"data_posted" => "2017-12-05"
+									"username" => "user2@kcl.ac.uk",
+									"preferred_name" => "Bush, George",
+									"date_posted" => "2017-12-05 00:00:00"
 							), $p);
 	}
 
@@ -169,10 +178,10 @@ class ConfigTest extends PHPUnit_Framework_TestCase {
 		while ($row = $result->fetch(PDO::FETCH_ASSOC)) {
 			$allReplies[] = $row;
 		}
-
+		
 		$this->assertEquals(array(
-								array("reply_id" => 1, "message" => "No clue bro", "post_id" => 1, "username" => "user1", "date_posted" => "2017-12-05"),
-								array("reply_id" => 2, "message" => "yes", "post_id" => 1, "username" => "user2", "date_posted" => "2017-12-05")
+								array("reply_id" => 2, "message" => "yes", "post_id" => 1, "username" => "user2@kcl.ac.uk", "preferred_name" => "Bush, George", "date_posted" => "2017-12-05 00:00:00"),
+								array("reply_id" => 1, "message" => "No clue bro", "post_id" => 1, "username" => "user1@kcl.ac.uk", "preferred_name" => "Travoltor, John", "date_posted" => "2017-12-05 00:00:00")
 							), $allReplies);
 	}
 

@@ -29,24 +29,13 @@
                       <ul>
                           <li><a href="<?php echo 'index.php'; ?>">Home</a></li>
                           <li><a href="<?php echo 'addPost.php'; ?>">Add Post</a></li>
-                          
-                          <li style="text-align:center"><div class="search">
-                                                    <form action="./">
-                                                      <input type="text" placeholder="Search for a topic..." name="search">
-                                                      <button type="submit">Search</i></button>
-                                                    </form>
-                                                  </div></li>
-                          
-                          
+
                           <li style="float:right"><a href="<?php echo 'logout.php'; ?>">Logout</a></li>
                       
                           <li class="dropdown" style="float:right">
-                            <a href="javascript:void(0)" class="dropbtn">Login/ Sign Up</a>
-                            <div class="dropdown-content" style="float:left">
-                              <a href="<?php echo './rest-api/php-connect-rest-sample-master/app/oauth.php'; ?>">Login</a>
-                              <a href="<?php echo 'signup.php'; ?>">Sign Up</a>
-                            </div>
+                            <a href="<?php echo './rest-api/php-connect-rest-sample-master/app/oauth.php'; ?>" class="dropbtn">Login/ Sign Up</a>
                           </li>
+
                       </ul>
                           
                     </div>

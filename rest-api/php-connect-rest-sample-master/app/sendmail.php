@@ -18,6 +18,8 @@
  */
 
 require_once("../autoload.php");
+require_once('../../../classes/config.php');
+require_once('../../../classes/user.php');
 
 use Microsoft\Graph\Connect\MailManager;
 
@@ -30,6 +32,22 @@ if (session_status() == PHP_SESSION_NONE) {
 $greetingName = isset($_SESSION['given_name'])
                 ? $_SESSION['given_name']
                 : explode('@', $_SESSION['preferred_username'])[0];
+
+if (isset($_SESSION['given_name'])) {
+    $config = new Config();
+    $conn = $config->getConnection();
+    $user = new User($conn);
+
+    $currentUser = $user->login($_SESSION["preferred_username"], $_SESSION["given_name"]);
+    if ($currentUser == false) {
+        try {
+            MailManager::sendWelcomeMail($_SESSION["preferred_username"]);
+        } catch (RuntimeException $e) {
+
+        }
+    }
+    header("Location: /");
+}
 
 ?>
 <!DOCTYPE html>
