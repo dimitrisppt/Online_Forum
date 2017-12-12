@@ -55,7 +55,7 @@ class UserTest extends PHPUnit_Framework_TestCase {
 		$username = "bradley.cooper@kcl.ac.uk";
 		$name = "Cooper, Bradley";
 
-		$result = self::$user->register($username, $name);
+		// $result = self::$user->register($username, $name);
 		
 	}
 
