@@ -30,7 +30,7 @@ class Constants
     // const CLIENT_SECRET = 'qfvaIRHG724(ielJHL43^*_';
     const CLIENT_ID = 'aaec149a-b551-43d9-ac94-9bbf575a6af4';
     const CLIENT_SECRET = 'sioSCQ48[{*fgvoQEZV018[';
-    const REDIRECT_URI = 'https://indigo-lab.herokuapp.com/rest-api/php-connect-rest-sample-master/app/oauth.php';
+    const REDIRECT_URI = 'https://indigo-lab.herokuapp.com:8080/rest-api/php-connect-rest-sample-master/app/oauth.php';
     // const REDIRECT_URI = 'http://localhost:8080/rest-api/php-connect-rest-sample-master/app/oauth.php';
     const AUTHORITY_URL = 'https://login.microsoftonline.com/common';
     const AUTHORIZE_ENDPOINT = '/oauth2/v2.0/authorize';
