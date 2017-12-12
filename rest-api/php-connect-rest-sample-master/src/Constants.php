@@ -28,7 +28,7 @@ class Constants
 {
     const CLIENT_ID = '4e179551-ae49-4f0e-870a-e3803f928b0c';
     const CLIENT_SECRET = 'qfvaIRHG724(ielJHL43^*_';
-    const REDIRECT_URI = 'http://localhost:8080/rest-api/php-connect-rest-sample-master/app/oauth.php';
+    const REDIRECT_URI = 'https://indigo-lab.herokuapp.com/rest-api/php-connect-rest-sample-master/app/oauth.php';
     const AUTHORITY_URL = 'https://login.microsoftonline.com/common';
     const AUTHORIZE_ENDPOINT = '/oauth2/v2.0/authorize';
     const TOKEN_ENDPOINT = '/oauth2/v2.0/token';
