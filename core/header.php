@@ -12,7 +12,7 @@
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
 
-    <link rel="stylesheet" type="text/css" href="css/main.css">
+    <link rel="stylesheet" type="text/css" href="/css/main.css">
 </head>
 
 <body>
@@ -27,13 +27,13 @@
                   
                     <div id="navigation-left">
                       <ul>
-                          <li><a href="<?php echo 'index.php'; ?>">Home</a></li>
-                          <li><a href="<?php echo 'addPost.php'; ?>">Add Post</a></li>
+                          <li><a href="<?php echo '/index.php'; ?>">Home</a></li>
+                          <li><a href="<?php echo '/views/addPost.php'; ?>">Add Post</a></li>
 
-                          <li style="float:right"><a href="<?php echo 'logout.php'; ?>">Logout</a></li>
+                          <li style="float:right"><a href="/logout.php'">Logout</a></li>
                       
                           <li class="dropdown" style="float:right">
-                            <a href="<?php echo './rest-api/php-connect-rest-sample-master/app/oauth.php'; ?>" class="dropbtn">Login/ Sign Up</a>
+                            <a href="/oauth.php" class="dropbtn">Login/ Sign Up</a>
                           </li>
 
                       </ul>

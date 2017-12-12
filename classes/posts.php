@@ -66,13 +66,13 @@ class Posts {
             echo '<div id="questionSection" class="questionSection">';
                 echo  '<div id="c1">';
                     echo '<h4 id="questionTitles">' . "Discussion" . "</h4>";
-                    echo '<a href="./question.php?id=' . $row["post_id"] . '">';
+                    echo '<a href="/views/question.php?id=' . $row["post_id"] . '">';
                     echo "<h4>" . $row["subject"] . "</h4></a>";
                 echo '</div>';
                 
                 echo  '<div id="c2">';
                     echo '<h4 id="questionTitles">' . "Author" . "</h4>";
-                    echo '<img src="img/user.png" style="width:20px; height:20px;"/>';
+                    echo '<img src="/img/user.png" style="width:20px; height:20px;"/>';
                     if ($row["preferred_name"]) {
                         echo '<span class="username">' . $row["preferred_name"] . '</span>';
                     } else {
@@ -110,7 +110,7 @@ class Posts {
 					
 						echo  '<div id="c5">';
 							echo '<h4>'; 
-							echo '<img src="img/user.png" style="width:20px; height:20px;"/>';
+							echo '<img src="/img/user.png" style="width:20px; height:20px;"/>';
 							echo " " . $row["subject"] . "</h4>";
 							echo '<div id="subTitle">';
                                 echo '<p>' . "by";
@@ -154,7 +154,7 @@ class Posts {
 					
 						echo  '<div id="c5">';
 							echo '<h4>'; 
-							echo '<img src="img/user.png" style="width:20px; height:20px;"/>';
+							echo '<img src="/img/user.png" style="width:20px; height:20px;"/>';
 							echo " RE: " . $this->subject . "</h4>";
 							echo '<div id="subTitle">';
                                 echo '<p>' . "by";

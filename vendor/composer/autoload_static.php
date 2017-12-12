@@ -4,13 +4,13 @@
 
 namespace Composer\Autoload;
 
-class ComposerStaticInitb908622dfb8b1a72c8e293064c2edeb7
+class ComposerStaticInitbaeee05c8d439def99d283ee9dd1812e
 {
     public static $files = array (
         'c964ee0ededf28c96ebd9db5099ef910' => __DIR__ . '/..' . '/guzzlehttp/promises/src/functions_include.php',
         'a0edc8309cc5e1d60e3047b5df6b7052' => __DIR__ . '/..' . '/guzzlehttp/psr7/src/functions_include.php',
-        '6124b4c8570aa390c21fafd04a26c69f' => __DIR__ . '/..' . '/myclabs/deep-copy/src/DeepCopy/deep_copy.php',
         '37a3dc5111fe8f707ab4c132ef1dbc62' => __DIR__ . '/..' . '/guzzlehttp/guzzle/src/functions_include.php',
+        '6124b4c8570aa390c21fafd04a26c69f' => __DIR__ . '/..' . '/myclabs/deep-copy/src/DeepCopy/deep_copy.php',
     );
 
     public static $prefixLengthsPsr4 = array (
@@ -29,6 +29,10 @@ class ComposerStaticInitb908622dfb8b1a72c8e293064c2edeb7
         'P' => 
         array (
             'Psr\\Http\\Message\\' => 17,
+        ),
+        'M' => 
+        array (
+            'Microsoft\\Graph\\Connect\\' => 24,
         ),
         'L' => 
         array (
@@ -65,6 +69,10 @@ class ComposerStaticInitb908622dfb8b1a72c8e293064c2edeb7
         'Psr\\Http\\Message\\' => 
         array (
             0 => __DIR__ . '/..' . '/psr/http-message/src',
+        ),
+        'Microsoft\\Graph\\Connect\\' => 
+        array (
+            0 => __DIR__ . '/../..' . '/src',
         ),
         'League\\OAuth2\\Client\\' => 
         array (
@@ -578,10 +586,10 @@ class ComposerStaticInitb908622dfb8b1a72c8e293064c2edeb7
     public static function getInitializer(ClassLoader $loader)
     {
         return \Closure::bind(function () use ($loader) {
-            $loader->prefixLengthsPsr4 = ComposerStaticInitb908622dfb8b1a72c8e293064c2edeb7::$prefixLengthsPsr4;
-            $loader->prefixDirsPsr4 = ComposerStaticInitb908622dfb8b1a72c8e293064c2edeb7::$prefixDirsPsr4;
-            $loader->prefixesPsr0 = ComposerStaticInitb908622dfb8b1a72c8e293064c2edeb7::$prefixesPsr0;
-            $loader->classMap = ComposerStaticInitb908622dfb8b1a72c8e293064c2edeb7::$classMap;
+            $loader->prefixLengthsPsr4 = ComposerStaticInitbaeee05c8d439def99d283ee9dd1812e::$prefixLengthsPsr4;
+            $loader->prefixDirsPsr4 = ComposerStaticInitbaeee05c8d439def99d283ee9dd1812e::$prefixDirsPsr4;
+            $loader->prefixesPsr0 = ComposerStaticInitbaeee05c8d439def99d283ee9dd1812e::$prefixesPsr0;
+            $loader->classMap = ComposerStaticInitbaeee05c8d439def99d283ee9dd1812e::$classMap;
 
         }, null, ClassLoader::class);
     }

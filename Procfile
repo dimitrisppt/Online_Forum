@@ -1,1 +1,1 @@
-web: vendor/bin/heroku-php-apache2 rest-api/php-connect-rest-sample-master/app/
+web: vendor/bin/heroku-php-apache2
