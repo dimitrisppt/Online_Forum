@@ -13,27 +13,26 @@
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
 
     <link rel="stylesheet" type="text/css" href="main.css">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
+    <link rel="stylesheet" href="https://code.getmdl.io/1.3.0/material.indigo-pink.min.css">
+    <script defer src="https://code.getmdl.io/1.3.0/material.min.js"></script>
 </head>
 
 <body>
     <div id="MainContainer">
-        <div id="HeaderContainer">
-            <div id="Header">
-                <h1 id="HeaderTitle"><span>Forum</span></h1>
-                <div id="navigation">
-
-                      <a href="<?php echo 'index.php'; ?>">Home</a>
-                      <a href="<?php echo 'login.php'; ?>">Login</a>
-                      <a href="<?php echo 'signup.php'; ?>">Sign Up</a>
-                      <a href="<?php echo 'addPost.php'; ?>">Add Post</a>
-                      <div class="search">
-                        <form action="./">
-                          <input type="text" placeholder="Search for a topic..." name="search">
-                          <button type="submit">Search</i></button>
-                        </form>
-                      </div>
-
-                </div>
-            </div>
+        <div >
+        <header class="mdl-layout__header">
+          <div class="mdl-layout__header-row">
+            <!-- Title -->
+            <span class="mdl-layout-title">Forum</span>
+          </div>
+          <!-- Tabs -->
+          <div class="mdl-layout__tab-bar ">
+            <a href="<?php echo 'index.php'; ?>" class="mdl-layout__tab is-active">Home</a>
+            <a href="<?php echo 'login.php'; ?>" class="mdl-layout__tab">Login</a>
+            <a href="<?php echo 'signup.php'; ?>" class="mdl-layout__tab">Sign Up</a>
+            <a href="<?php echo 'addPost.php'; ?>" class="mdl-layout__tab">Add Post</a>
+          </div>
+        </header>
         </div>
 </body>
