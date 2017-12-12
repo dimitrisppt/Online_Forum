@@ -135,7 +135,7 @@ footer {
 }
 
 .sectionTitle {
-    background-color: #333C3E;
+    background-color: blue;
     height: 2em;
     color: #FFF;
     font-family: 'BureauGrotesqueThreeSeven', Arial, Helvetica, sans-serif;
@@ -255,7 +255,6 @@ hr {
 .titleOverride {
     color: red;
     background-color: red;
-    width: 0px;
 }
 
 .mdl-layout-title.mdl-layout-title {

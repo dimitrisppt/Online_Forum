@@ -37,7 +37,10 @@ if ($_GET["id"]) {
 								</div>
 
 								<div class="form-group">
-									<button class="btn btn-primary" name="submit" type="submit">Add Post</button>
+									<button class="btn waves-effect waves-light" type="submit" name="submit">Add Post
+									  <i class="material-icons right">Add Post</i>
+									</button>
+									
 								</div>
 
 							</form>
@@ -45,7 +48,7 @@ if ($_GET["id"]) {
 						</div>
 					</div>
 				</div>
-				
+
 				<?php
 					include ('footer.php');
 				?>
