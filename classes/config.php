@@ -12,7 +12,7 @@ class Config {
 		$this->setCloud9Configs();
 		// $this->setHerokuConfigs();
 	}
-
+	
 	private function setLocalConfigs() {
 		$this->db_server = 'localhost';
 		$this->db_user = 'root';
@@ -34,6 +34,10 @@ class Config {
 		$this->db_name = 'c9';
 	}
 	
+	public function setTestDatabase() {
+		$this->db_name = 'test-indigo';
+	}
+
 	public function getConnection() {
 		$options = [
 		    PDO::ATTR_ERRMODE            => PDO::ERRMODE_EXCEPTION,
@@ -46,4 +50,5 @@ class Config {
 		// $this->conn = mysqli_connect($this->db_server, $this->db_user, $this->db_pass, $this->db_name);
 		return $this->conn;
 	}
+
 }

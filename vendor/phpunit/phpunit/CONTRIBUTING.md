@@ -1,55 +1,65 @@
-Contributing to PHPUnit
-=======================
+# Contributing to PHPUnit
 
-Contributions to PHPUnit, its related modules, and its documentation are always welcome. You make our lifes easier by sending us your contributions through GitHub pull requests.
+## Contributor Code of Conduct
 
-Please note that the `3.6.` branch is closed for features and that pull requests should to be based on `master` or the `3.7.` once it exists.
+Please note that this project is released with a [Contributor Code of Conduct](CODE_OF_CONDUCT.md). By participating in this project you agree to abide by its terms.
 
-We are trying to keep backwards compatibility breaks in PHPUnit 3.7 to an absolute minimum so please take this into account when proposing changes.
+## Workflow
 
-Due to time constraints, we are not always able to respond as quickly as we would like. Please do not take delays personal and feel free to remind us here or on IRC if you feel that we forgot to respond.
+* Fork the project.
+* Make your bug fix or feature addition.
+* Add tests for it. This is important so we don't break it in a future version unintentionally.
+* Send a pull request. Bonus points for topic branches.
 
-Using PHPUnit From a Git Checkout
----------------------------------
+Please make sure that you have [set up your user name and email address](http://git-scm.com/book/en/v2/Getting-Started-First-Time-Git-Setup) for use with Git. Strings such as `silly nick name <root@localhost>` look really stupid in the commit history of a project.
 
-The following commands can be used to perform the initial checkout of PHPUnit and its dependencies from Git:
+Pull requests for bug fixes must be based on the current stable branch whereas pull requests for new features must be based on the `master` branch.
 
-    mkdir phpunit && cd phpunit
-    git clone git://github.com/sebastianbergmann/phpunit.git
-    git clone git://github.com/sebastianbergmann/dbunit.git
-    git clone git://github.com/sebastianbergmann/php-file-iterator.git
-    git clone git://github.com/sebastianbergmann/php-text-template.git
-    git clone git://github.com/sebastianbergmann/php-code-coverage.git
-    git clone git://github.com/sebastianbergmann/php-token-stream.git
-    git clone git://github.com/sebastianbergmann/php-timer.git
-    git clone git://github.com/sebastianbergmann/phpunit-mock-objects.git
-    git clone git://github.com/sebastianbergmann/phpunit-selenium.git
-    git clone git://github.com/sebastianbergmann/phpunit-story.git
-    git clone git://github.com/sebastianbergmann/php-invoker.git
+We are trying to keep backwards compatibility breaks in PHPUnit to an absolute minimum. Please take this into account when proposing changes.
 
-The `dbunit`, `php-code-coverage`, `php-file-iterator`, `php-text-template`, `php-timer`, `php-token-stream`, `phpunit`, `phpunit-mock-objects`, `phpunit-selenium`, `phpunit-story`, and `php-invoker` directories need to be added to the `include_path`.
+Due to time constraints, we are not always able to respond as quickly as we would like. Please do not take delays personal and feel free to remind us if you feel that we forgot to respond.
 
-In addition to the checkouts listed above, the YAML component that is provided by the Symfony project is required:
+## Coding Guidelines
 
-    pear install pear.symfony.com/Yaml
+This project comes with a configuration file for [php-cs-fixer](https://github.com/FriendsOfPHP/PHP-CS-Fixer) (`.php_cs`) that you can use to (re)format your sourcecode for compliance with this project's coding guidelines:
 
-The `phpunit/phpunit.php` script can be used to invoke the PHPUnit test runner.
+```bash
+$ wget http://get.sensiolabs.org/php-cs-fixer.phar
 
-Running the test suite(s)
--------------------------
+$ php php-cs-fixer.phar fix
+```
 
-It is not possible to use a system-wide installed version of PHPUnit to run the test suite of a Git checkout. Because of that is is necessary to change the `include_paths` as described below.
+## Using PHPUnit from a Git checkout
 
-This can be achieved with a small wrapper script designed to work with every module in the PHPUnit stack.
+The following commands can be used to perform the initial checkout of PHPUnit:
 
-Note that you might have to change the path to your PEAR installation here pointing to `/usr/local/lib/php`. You can find it using `pear config-show | grep php_dir`.
+```bash
+$ git clone git://github.com/sebastianbergmann/phpunit.git
 
-### Linux / MacOS X
+$ cd phpunit
+```
 
-    #!/bin/bash
-    php -d include_path='.:../phpunit/:../dbunit/:../php-code-coverage/:../php-file-iterator/:../php-invoker/:../php-text-template/:../php-timer:../php-token-stream:../phpunit-mock-objects/:../phpunit-selenium/:../phpunit-story/:/usr/local/lib/php' ../phpunit/phpunit.php $*
+Retrieve PHPUnit's dependencies using [Composer](https://getcomposer.org/):
 
-### Windows
+```bash
+$ composer install
+```
 
-    @echo off
-    php -d include_path='.;../phpunit/;../dbunit/;../php-code-coverage/;../php-file-iterator/;../php-invoker/;../php-text-template/;../php-timer;../php-token-stream;../phpunit-mock-objects/;../phpunit-selenium/;../phpunit-story/;C:/Program Files/PHP/pear' ../phpunit/phpunit.php %*
+The `phpunit` script can be used to invoke the PHPUnit test runner:
+
+```bash
+$ ./phpunit --version
+```
+
+## Reporting issues
+
+Please use the most specific issue tracker to search for existing tickets and to open new tickets:
+
+* [General problems](https://github.com/sebastianbergmann/phpunit/issues)
+* [Code Coverage](https://github.com/sebastianbergmann/php-code-coverage/issues)
+* [Stub and Mock Objects](https://github.com/sebastianbergmann/phpunit-mock-objects/issues)
+* [DbUnit](https://github.com/sebastianbergmann/dbunit/issues)
+* [PHPUnit_Selenium](https://github.com/sebastianbergmann/phpunit-selenium/issues)
+* [Documentation](https://github.com/sebastianbergmann/phpunit-documentation/issues)
+* [Website](https://github.com/sebastianbergmann/phpunit-website/issues)
+

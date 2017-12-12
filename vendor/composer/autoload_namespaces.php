@@ -6,6 +6,5 @@ $vendorDir = dirname(dirname(__FILE__));
 $baseDir = dirname($vendorDir);
 
 return array(
-    'labIndigo' => array($baseDir . '/'),
-    'Symfony\\Component\\Yaml' => array($vendorDir . '/symfony/yaml'),
+    'Prophecy\\' => array($vendorDir . '/phpspec/prophecy/src'),
 );

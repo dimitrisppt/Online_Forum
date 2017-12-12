@@ -4,7 +4,7 @@ require_once('core/init.php');
 include('core/header.php');
 
 if ($_POST["subject"] && $_POST["message"]) {
-    $posts->makePost($_POST["subject"], $_POST["message"], $_POST["username"]);
+    $madePost = $posts->makePost($_POST["subject"], $_POST["message"], $_POST["username"]);
 }
 
 ?>

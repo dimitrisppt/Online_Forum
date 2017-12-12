@@ -18,12 +18,19 @@ class Posts {
 		$this->username = $user;
 		$this->postDate = date("Y-m-d");
 
+		if (trim($sub) === '' || trim($msg) === '') {
+			return null;
+		}
+
 		$q = "INSERT INTO lab_posts (subject, message, username, data_posted) VALUES ('" . $this->subject . "','" . $this->message . "','" . $this->username . "','" . $this->postDate . "')";
 		return $this->conn->query($q);
 	}
 
 	public function replyToPost($reply, $id, $user) {
-		$su = "INSERT INTO post_replies (message, post_id, username, date_posted) VALUES ('" . $reply . "','" . $id . "','" . $username . "','" . date("Y-m-d") . "')";
+		if (trim($reply) === "") {
+			return null;
+		}
+		$su = "INSERT INTO post_replies (message, post_id, username, date_posted) VALUES ('" . $reply . "','" . $id . "','" . $user . "','" . date("Y-m-d") . "')";
     	return $this->conn->query($su);
 	}
 
@@ -36,7 +43,7 @@ class Posts {
 		$q = "SELECT * FROM lab_posts WHERE post_id=" . $id;
 		return $this->conn->query($q);
 	}
-
+	
 	public function getAllReplies($id) {
 		$q = "SELECT * FROM post_replies WHERE post_id=" . $id;
 		return $this->conn->query($q);
