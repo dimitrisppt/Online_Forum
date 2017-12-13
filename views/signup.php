@@ -1,60 +1,23 @@
 <?php
 
 require_once('../core/init.php');
-//require_once('classes/config.php');
-//require_once('classes/user.php');
-//require_once('classes/posts.php');
-//session_start();
-
-//$config = new Config();
-//$conn = $config->getConnection();
-
-//$posts = new Posts($conn);
-//$user = new User($conn);
 include('../core/header.php');
 
-
-
 $username = $_POST['username'];
-
-//$database = new mysqli("localhost", "user", "dbpw", "dbname");
-//$email = $database->real_escape_string(htmlspecialchars($_POST["email"]));
-//$query = "SELECT email FROM sign_up WHERE email =$email";
-//$resulta = $database->query($query);
-//$numOfRows = $database->num_rows($resulta);
 $su = "SELECT * FROM sign_up";
 $result = $conn->query($su);
 
 
-//!$dbc || mysqli_num_rows($dbc) 
-//if (mysqli_num_rows($res) > 0 ) {
-  //echo "<strong>This email or username already exists! </strong" ;
-//} else$username = $_POST['username'];
-
-
-$sql      = " SELECT * FROM sign_up WHERE username = '" . $username . "'" ;
-$res      =  $conn->query($sql);
-
-//$database = new mysqli("localhost", "user", "dbpw", "dbname");
-//$email = $database->real_escape_string(htmlspecialchars($_POST["email"]));
-//$query = "SELECT email FROM sign_up WHERE email =$email";
-//$resulta = $database->query($query);
-//$numOfRows = $database->num_rows($resulta);
-
-
-//$su = "SELECT * FROM sign_up";
-//$result = $conn->query($su);
-
+$sql = " SELECT * FROM sign_up WHERE username = '" . $username . "'" ;
+$res =  $conn->query($sql);
 
 if ( $res->rowCount() > 0 ) {
-    echo "<p><strong>This email or username already exists! </strong></p>" ;
-    
+    echo "<p><strong>This email or username already exists! </strong></p>";
 } else if ($_POST["email"] && $_POST["username"] && $_POST["password"]) {
     $user->register($_POST["username"], $_POST["password"], $_POST["email"]);
     header("Location: /login.php");
     die();
 }
-
 
 $result = $user->getAllSignups();
 

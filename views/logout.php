@@ -3,7 +3,7 @@
 session_start();
 session_destroy();
 
-header('Location: login.php');
+header('Location: /');
 echo '<h3>You successfully logged out</h3>';
 exit;
 

@@ -7,7 +7,7 @@ if ($_POST["username"] && $_POST["password"]) {
     $didLogin = $user->login($_POST['username'], $_POST['password']);
     
     if ($didLogin) {
-        header("Location: ./");
+        header("Location: /");
     } else {
         $errorMsg = "Username and password not found";
     }
