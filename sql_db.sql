@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Host: localhost:3306
--- Generation Time: Dec 12, 2017 at 05:57 PM
+-- Generation Time: Dec 13, 2017 at 03:45 AM
 -- Server version: 5.5.42
 -- PHP Version: 7.0.0
 
@@ -27,22 +27,17 @@ CREATE TABLE `lab_posts` (
   `username` varchar(50) DEFAULT NULL,
   `preferred_name` varchar(50) NOT NULL,
   `date_posted` datetime NOT NULL
-) ENGINE=InnoDB AUTO_INCREMENT=28 DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB AUTO_INCREMENT=5 DEFAULT CHARSET=latin1;
 
 --
 -- Dumping data for table `lab_posts`
 --
 
 INSERT INTO `lab_posts` (`post_id`, `subject`, `message`, `username`, `preferred_name`, `date_posted`) VALUES
-(19, 'PEP Assignment 9', 'How do you do it?', 'user1', '', '2017-12-05 00:00:00'),
-(20, 'Lab Project Issues', 'Can I not do it?', 'user1', '', '2017-12-05 00:00:00'),
-(21, 'sdfgsdfg', 'sdfgsdfg', 'k1631089@kcl.ac.uk', '', '2017-12-12 00:00:00'),
-(22, 'reeee', 'gaaaaa', 'k1631089@kcl.ac.uk', '', '2017-12-12 00:00:00'),
-(23, 'llkkkkk', 'ffffqq', 'k1631089@kcl.ac.uk', 'k1631089@kcl.ac.uk', '2017-12-12 00:00:00'),
-(24, 'last one', 'ggggg', 'k1631089@kcl.ac.uk', 'Farooqi, Omar', '2017-12-12 00:00:00'),
-(25, 't-2', 'sdfgsdfg', 'k1631089@kcl.ac.uk', 'Farooqi, Omar', '2017-12-12 00:00:00'),
-(26, 'Test', 'sdgggqqqqq', '', '', '2017-12-12 00:00:00'),
-(27, 'new one', 'ssaaa', '', '', '2017-12-12 16:22:15');
+(1, 'PEP Assignment 9', 'Any clues how to do part (b) of the assignment?', 'k1631089@kcl.ac.uk', 'Farooqi, Omar', '2017-12-13 03:37:02'),
+(2, 'Lab Project Issues', 'How do I use gradle?', '', '', '2017-12-13 03:37:14'),
+(3, 'Issues With Swing', 'I keep getting an exception', 'k1630513@kcl.ac.uk', 'Papatheodoulou, Dimitris', '2017-12-13 03:39:53'),
+(4, 'Microsoft Word VS Pages', 'Which do you guys suggest I use for documentation?', '', '', '2017-12-13 03:44:05');
 
 -- --------------------------------------------------------
 
@@ -57,23 +52,18 @@ CREATE TABLE `post_replies` (
   `username` varchar(50) DEFAULT NULL,
   `preferred_name` varchar(50) NOT NULL,
   `date_posted` datetime NOT NULL
-) ENGINE=InnoDB AUTO_INCREMENT=30 DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB AUTO_INCREMENT=6 DEFAULT CHARSET=latin1;
 
 --
 -- Dumping data for table `post_replies`
 --
 
 INSERT INTO `post_replies` (`reply_id`, `message`, `post_id`, `username`, `preferred_name`, `date_posted`) VALUES
-(20, 'No clue bro', 19, 'user1', '', '2017-12-05 00:00:00'),
-(21, 'yes', 20, 'user1', '', '2017-12-05 00:00:00'),
-(22, 'Test reply', 19, 'user1', '', '2017-12-05 00:00:00'),
-(23, 'test', 19, '', '', '2017-12-08 00:00:00'),
-(24, 'yeaaa', 21, 'k1631089@kcl.ac.uk', '', '2017-12-12 00:00:00'),
-(25, 'tstt', 24, 'k1631089@kcl.ac.uk', '', '2017-12-12 00:00:00'),
-(26, 'raw', 19, 'k1631089@kcl.ac.uk', 'Farooqi, Omar', '2017-12-12 00:00:00'),
-(27, 'sdfsdfg', 25, 'k1631089@kcl.ac.uk', 'Farooqi, Omar', '2017-12-12 00:00:00'),
-(28, 'test', 25, 'k1631089@kcl.ac.uk', 'Farooqi, Omar', '2017-12-12 00:00:00'),
-(29, 'yqqs', 19, '', '', '2017-12-12 16:37:39');
+(1, 'Have you tried reading the brief?', 1, 'k1631089@kcl.ac.uk', 'Farooqi, Omar', '2017-12-13 03:27:02'),
+(2, 'Please look at the other answers for hints.', 1, '', '', '2017-12-13 03:27:16'),
+(3, 'I would like help on this too please.', 1, 'k1630513@kcl.ac.uk', 'Papatheodoulou, Dimitris', '2017-12-13 03:33:44'),
+(4, 'There are some suggested tutorials on KEATS', 2, '', '', '2017-12-13 03:37:48'),
+(5, 'Use a try-catch block', 3, 'k1630241@kcl.ac.uk', 'Demmy, Zolt', '2017-12-13 03:40:33');
 
 -- --------------------------------------------------------
 
@@ -85,14 +75,16 @@ CREATE TABLE `users` (
   `user_id` int(11) NOT NULL,
   `username` varchar(50) NOT NULL,
   `preferred_name` varchar(50) NOT NULL
-) ENGINE=InnoDB AUTO_INCREMENT=9 DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB AUTO_INCREMENT=4 DEFAULT CHARSET=latin1;
 
 --
 -- Dumping data for table `users`
 --
 
 INSERT INTO `users` (`user_id`, `username`, `preferred_name`) VALUES
-(8, 'k1631089@kcl.ac.uk', 'Farooqi, Omar');
+(1, 'k1631089@kcl.ac.uk', 'Farooqi, Omar'),
+(2, 'k1630513@kcl.ac.uk', 'Papatheodoulou, Dimitris'),
+(3, 'k1630241@kcl.ac.uk', 'Demmy, Zolt');
 
 --
 -- Indexes for dumped tables
@@ -124,14 +116,14 @@ ALTER TABLE `users`
 -- AUTO_INCREMENT for table `lab_posts`
 --
 ALTER TABLE `lab_posts`
-  MODIFY `post_id` int(11) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=28;
+  MODIFY `post_id` int(11) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=5;
 --
 -- AUTO_INCREMENT for table `post_replies`
 --
 ALTER TABLE `post_replies`
-  MODIFY `reply_id` int(11) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=30;
+  MODIFY `reply_id` int(11) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=6;
 --
 -- AUTO_INCREMENT for table `users`
 --
 ALTER TABLE `users`
-  MODIFY `user_id` int(11) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=9;
+  MODIFY `user_id` int(11) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=4;

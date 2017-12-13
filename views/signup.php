@@ -92,7 +92,7 @@ $result = $user->getAllSignups();
                     </div>
                 </div>
 
-               <?php include ('core/footer.php'); ?>
+               <?php include ('../core/footer.php'); ?>
             </div>
         </body>
 

@@ -9,8 +9,8 @@ class Config {
 
 	public function __construct() {
 		// $this->setLocalConfigs();
-		// $this->setCloud9Configs();
 		$this->setHerokuConfigs();
+		// $this->setCloud9Configs();
 	}
 	
 	private function setLocalConfigs() {

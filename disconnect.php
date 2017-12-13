@@ -17,7 +17,7 @@
     to start page
  */
 
-require_once __DIR__ . '/../vendor/autoload.php';
+require_once 'vendor/autoload.php';
 
 use Microsoft\Graph\Connect\Constants;
 
@@ -27,7 +27,7 @@ if (session_status() == PHP_SESSION_NONE) {
 }
 session_destroy();
 
-$connectUrl = 'https://indigo-lab.herokuapp.com:8080/index.php';
+$connectUrl = 'https://indigo-lab.herokuapp.com/index.php';
 // $connectUrl = 'http://localhost:8080/index.php';
 
 header('Location: ' . $connectUrl);
