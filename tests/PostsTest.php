@@ -1,7 +1,7 @@
 <?php
 
-require_once($_SERVER["DOCUMENT_ROOT"] . "/classes/config.php");
-require_once($_SERVER["DOCUMENT_ROOT"] . "/classes/posts.php");
+require_once("classes/config.php");
+require_once("classes/posts.php");
 
 class ConfigTest extends PHPUnit_Framework_TestCase {
 	
@@ -200,9 +200,10 @@ class ConfigTest extends PHPUnit_Framework_TestCase {
 		self::$posts->replyToPost("Test Reply", 3, "user2@kcl.ac.uk", "Bush, George");
 
 		// Checks Reply
-		$reply = self::$posts->getReply(3, 1)->fetch();
+		$reply = self::$posts->getReply(3, 3);
+		$reply = $reply->fetch();
 
-		$this->assertEquals(1, $reply["reply_id"]);
+		$this->assertEquals(3, $reply["reply_id"]);
 		$this->assertEquals("Test Reply", $reply["message"]);
 		$this->assertEquals(3, $reply["post_id"]);
 		$this->assertEquals("Bush, George", $reply["preferred_name"]);

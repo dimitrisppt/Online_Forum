@@ -8,11 +8,9 @@ class Config {
 	public $conn;
 
 	public function __construct() {
-		$this->setLocalConfigs();
+		// $this->setLocalConfigs();
 		// $this->setCloud9Configs();
-		// $this->setHerokuConfigs();
-		
-		// $_ENV['APP_URL'] = 'https://indigo-lab.herokuapp.com';
+		$this->setHerokuConfigs();
 	}
 	
 	private function setLocalConfigs() {
@@ -48,8 +46,6 @@ class Config {
 		];
 		
 		$this->conn = new PDO("mysql:host=$this->db_server;dbname=$this->db_name", $this->db_user, $this->db_pass, $options);
-
-		// $this->conn = mysqli_connect($this->db_server, $this->db_user, $this->db_pass, $this->db_name);
 		return $this->conn;
 	}
 
