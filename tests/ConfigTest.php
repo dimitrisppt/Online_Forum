@@ -11,7 +11,7 @@ class ConfigTest extends PHPUnit_Framework_TestCase {
 	public function tearDown() {
 
 	}
-
+	
     public function testTrueReturnsTrue() {
         $this->assertEquals(true, true);
     }
