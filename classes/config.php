@@ -44,8 +44,11 @@ class Config {
 		    PDO::ATTR_DEFAULT_FETCH_MODE => PDO::FETCH_ASSOC,
 		    PDO::ATTR_EMULATE_PREPARES   => false,
 		];
-		
-		$this->conn = new PDO("mysql:host=$this->db_server;dbname=$this->db_name", $this->db_user, $this->db_pass, $options);
+		try {
+			$this->conn = new PDO("mysql:host=$this->db_server;dbname=$this->db_name", $this->db_user, $this->db_pass, $options);
+		} catch(PDOException $e) {
+			return;
+		}
 		return $this->conn;
 	}
 
