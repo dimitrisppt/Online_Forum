@@ -8,9 +8,9 @@ class Config {
 	public $conn;
 
 	public function __construct() {
-		// $this->setLocalConfigs();
+		$this->setLocalConfigs();
 		// $this->setCloud9Configs();
-		$this->setHerokuConfigs();
+		// $this->setHerokuConfigs();
 		
 		// $_ENV['APP_URL'] = 'https://indigo-lab.herokuapp.com';
 	}

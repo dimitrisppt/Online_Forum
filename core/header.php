@@ -3,7 +3,7 @@
 
 <head>
     <title>Forum</title>
-    <link rel="icon" type="image/png"  href="img/logodark.png" />
+    <link rel="icon" type="image/png"  href="/img/logodark.png" />
     <meta charset="utf-8">
     <meta http-equiv="Content-type" content="text/html; charset=utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -19,7 +19,7 @@
     <div id="MainContainer">
         <div id="HeaderContainer">
             <div id="Header">
-                <h1 id="HeaderTitle"><span> <img src="img/logo1.png" alt="Logo" style="width:50px;height:30px;"></span></span><span> Forum</span><img src="img/kingslogo.png" alt="Logo" style="width:60px;height:40px;float:right;margin-right:1%;"></h1>
+                <h1 id="HeaderTitle"><span> <img src="/img/logo1.png" alt="Logo" style="width:50px;height:30px;"></span></span><span> Forum</span><img src="img/kingslogo.png" alt="Logo" style="width:60px;height:40px;float:right;margin-right:1%;"></h1>
        
             </div>
             
@@ -27,10 +27,10 @@
                   
                     <div id="navigation-left">
                       <ul>
-                          <li><a href="<?php echo '/index.php'; ?>">Home</a></li>
-                          <li><a href="<?php echo '/views/addPost.php'; ?>">Add Post</a></li>
+                          <li><a href="/index.php">Home</a></li>
+                          <li><a href="/views/addPost.php">Add Post</a></li>
 
-                          <li style="float:right"><a href="/logout.php'">Logout</a></li>
+                          <li style="float:right"><a href="/views/logout.php">Logout</a></li>
                       
                           <li class="dropdown" style="float:right">
                             <a href="/oauth.php" class="dropbtn">Login/ Sign Up</a>
