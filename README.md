@@ -14,7 +14,7 @@ https://indigo-lab.herokuapp.com/
 **Note:** We experienced some connection issues every now and then when using a free Heroku container which led to a Request Time Out error when connecting to the database, so the page may have to be refreshed until it successfully connects to it.
 
 ## Web Stack Used
-* **PHP** - The back-end language
+* **PHP 7** - The back-end language
 * **MySQL** - the database
 * **HTML/CSS/JS with Bootstrap** - for the front-end
 
