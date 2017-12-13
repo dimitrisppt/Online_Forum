@@ -8,9 +8,9 @@ class Config {
 	public $conn;
 
 	public function __construct() {
-		// $this->setLocalConfigs();
+		$this->setLocalConfigs();
 		// $this->setCloud9Configs();
-		$this->setHerokuConfigs();
+		// $this->setHerokuConfigs();
 		
 		// $_ENV['APP_URL'] = 'https://indigo-lab.herokuapp.com';
 	}
@@ -21,7 +21,7 @@ class Config {
 		$this->db_pass = 'root';
 		$this->db_name = 'lab-indigo';
 	}
-
+	
 	private function setHerokuConfigs() {
 		$this->db_server = 'eu-cdbr-west-01.cleardb.com';
 		$this->db_user = 'b3fc62381bbceb';
