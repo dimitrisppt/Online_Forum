@@ -7,7 +7,10 @@ namespace Composer\Autoload;
 class ComposerStaticInit2ab69855687a02b2f53b2f56466a3e41
 {
     public static $files = array (
+        'c964ee0ededf28c96ebd9db5099ef910' => __DIR__ . '/..' . '/guzzlehttp/promises/src/functions_include.php',
+        'a0edc8309cc5e1d60e3047b5df6b7052' => __DIR__ . '/..' . '/guzzlehttp/psr7/src/functions_include.php',
         '6124b4c8570aa390c21fafd04a26c69f' => __DIR__ . '/..' . '/myclabs/deep-copy/src/DeepCopy/deep_copy.php',
+        '37a3dc5111fe8f707ab4c132ef1dbc62' => __DIR__ . '/..' . '/guzzlehttp/guzzle/src/functions_include.php',
     );
 
     public static $prefixLengthsPsr4 = array (
@@ -23,9 +26,23 @@ class ComposerStaticInit2ab69855687a02b2f53b2f56466a3e41
         array (
             'Symfony\\Component\\Yaml\\' => 23,
         ),
+        'P' => 
+        array (
+            'Psr\\Http\\Message\\' => 17,
+        ),
         'M' => 
         array (
             'Microsoft\\Graph\\Connect\\' => 24,
+        ),
+        'L' => 
+        array (
+            'League\\OAuth2\\Client\\' => 21,
+        ),
+        'G' => 
+        array (
+            'GuzzleHttp\\Psr7\\' => 16,
+            'GuzzleHttp\\Promise\\' => 19,
+            'GuzzleHttp\\' => 11,
         ),
         'D' => 
         array (
@@ -49,9 +66,29 @@ class ComposerStaticInit2ab69855687a02b2f53b2f56466a3e41
         array (
             0 => __DIR__ . '/..' . '/symfony/yaml',
         ),
+        'Psr\\Http\\Message\\' => 
+        array (
+            0 => __DIR__ . '/..' . '/psr/http-message/src',
+        ),
         'Microsoft\\Graph\\Connect\\' => 
         array (
             0 => __DIR__ . '/../..' . '/graph',
+        ),
+        'League\\OAuth2\\Client\\' => 
+        array (
+            0 => __DIR__ . '/..' . '/league/oauth2-client/src',
+        ),
+        'GuzzleHttp\\Psr7\\' => 
+        array (
+            0 => __DIR__ . '/..' . '/guzzlehttp/psr7/src',
+        ),
+        'GuzzleHttp\\Promise\\' => 
+        array (
+            0 => __DIR__ . '/..' . '/guzzlehttp/promises/src',
+        ),
+        'GuzzleHttp\\' => 
+        array (
+            0 => __DIR__ . '/..' . '/guzzlehttp/guzzle/src',
         ),
         'Doctrine\\Instantiator\\' => 
         array (
@@ -64,6 +101,20 @@ class ComposerStaticInit2ab69855687a02b2f53b2f56466a3e41
     );
 
     public static $prefixesPsr0 = array (
+        'S' => 
+        array (
+            'SecurityLib' => 
+            array (
+                0 => __DIR__ . '/..' . '/ircmaxell/security-lib/lib',
+            ),
+        ),
+        'R' => 
+        array (
+            'RandomLib' => 
+            array (
+                0 => __DIR__ . '/..' . '/ircmaxell/random-lib/lib',
+            ),
+        ),
         'P' => 
         array (
             'Prophecy\\' => 
