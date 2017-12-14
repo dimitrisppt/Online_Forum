@@ -39,24 +39,25 @@ if (isset($_SESSION['given_name'])) {
     $conn = $config->getConnection();
     $user = new User($conn);
 
-    if (strpos($_SESSION["preferred_username"], '@kcl.ac.uk') == false) {
+    if (strpos($_SESSION["preferred_username"], '@kcl.ac.uk') !== false) {
+        $currentUser = $user->login($_SESSION["preferred_username"], $_SESSION["given_name"]);
+
+        if ($currentUser == false) {
+            try {
+                $_SESSION["did_register"] = true;
+                MailManager::sendWelcomeMail($_SESSION["preferred_username"]);
+            } catch (RuntimeException $e) {
+
+            }
+        } else {
+            $_SESSION["did_login"] = true;
+        }
+        header("Location: /");
+        
+    } else {
         $_SESSION["unsuccessful_register"] = true;
         header("Location: /");
     }
-
-    $currentUser = $user->login($_SESSION["preferred_username"], $_SESSION["given_name"]);
-
-    if ($currentUser == false) {
-        try {
-            $_SESSION["did_register"] = true;
-            MailManager::sendWelcomeMail($_SESSION["preferred_username"]);
-        } catch (RuntimeException $e) {
-
-        }
-    } else {
-        $_SESSION["did_login"] = true;
-    }
-    header("Location: /");
 }
 
 ?>
