@@ -12,6 +12,7 @@
  *  @link     http://github.com/microsoftgraph/php-connect-rest-sample
  */
 
+require_once("RequestManager.php");
 namespace Microsoft\Graph\Connect;
 
 /**
