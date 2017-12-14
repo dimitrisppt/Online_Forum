@@ -20,7 +20,7 @@ if ($_POST["replyMessage"]) {
 			
 			<div id="wrapper">
                 <div id="column1ans">
-                    <img src="img/kingsimg.png" id="kingsimgAns">
+                    <img src="/img/kingsimg.png" id="kingsimgAns">
                 </div>
                  
                 <div id="column2">  
@@ -36,7 +36,7 @@ if ($_POST["replyMessage"]) {
 						</div>
 				
 				<div id="column3ans">
-	       	    	<img src="img/kingsimg.png" id="kingsimgAns">
+	       	    	<img src="/img/kingsimg.png" id="kingsimgAns">
 	            </div>
 	        </div>
 	

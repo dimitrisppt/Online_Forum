@@ -163,7 +163,9 @@ class Posts {
                                 } else {
                                     echo '<span class="user">' . " " . "Anonymous" . '</span>';
                                 }
-                                echo '<span class="date_posted">' . " - " . $row["date_posted"] . '</span>';
+                                $d = explode(" ", $row["date_posted"])[0];
+                    			$t = explode(" ", $row["date_posted"])[1];
+                                echo '<span class="date_posted">' . " - <strong>Date: </strong>" . $d . "<strong> Time: </strong>" . $t . '</span>';
                                 echo "</p>";
                              echo '</div>'; 
                         echo '</div>'; 
