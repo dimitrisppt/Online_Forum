@@ -15,6 +15,7 @@
 namespace Microsoft\Graph\Connect;
 
 require_once("RequestManager.php");
+require_once("Constants.php");
 
 /**
  *  Handles the creation of the email and sends the request
