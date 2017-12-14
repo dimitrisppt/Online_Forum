@@ -19,6 +19,11 @@ if ($_POST["subject"] && $_POST["message"]) {
                 Successfully logged in!
             </div>';
         $_SESSION["did_login"] = false;
+    } else if ($_SESSION["unsuccessful_register"]) {
+        echo '<div class="alert alert-warning" role="alert" style="margin-bottom:0px;text-align:center;">
+                You can only login/register with a @kcl.ac.uk email address.
+            </div>';
+        $_SESSION["unsuccessful_register"] = false;
     }
 ?>
 
