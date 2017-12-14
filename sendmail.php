@@ -42,6 +42,7 @@ if (isset($_SESSION['given_name'])) {
     $currentUser = $user->login($_SESSION["preferred_username"], $_SESSION["given_name"]);
     if ($currentUser == false) {
         try {
+            $_SESSION["test_thing"] = "YEP";
             MailManager::sendWelcomeMail($_SESSION["preferred_username"]);
         } catch (RuntimeException $e) {
 
