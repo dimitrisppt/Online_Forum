@@ -49,7 +49,8 @@ class MailManager
 
     public static function sendWelcomeMailWithToken($recipient, $accessToken, $givenName, $preferredUsername)
     {
-        $emailBody = file_get_contents(__DIR__ . '/../app/MailTemplate.html');
+        // $emailBody = file_get_contents(__DIR__ . '/../app/MailTemplate.html');
+        $emailBody = file_get_contents(__DIR__ . '/../MailTemplate.html');
         
         // Use the given name if it exists, otherwise, use the alias
         $greetingName = isset($givenName)
@@ -65,7 +66,7 @@ class MailManager
         // Build the HTTP request payload (the Message object).
         $email = "{
             Message: {
-            Subject: 'Welcome to Microsoft Graph development with PHP',
+            Subject: 'Welcome to Team Indigo Forums',
             Body: {
                 ContentType: 'HTML',
                 Content: '{$emailBody}'
