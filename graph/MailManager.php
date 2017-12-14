@@ -12,8 +12,9 @@
  *  @link     http://github.com/microsoftgraph/php-connect-rest-sample
  */
 
-require_once("RequestManager.php");
 namespace Microsoft\Graph\Connect;
+
+require_once("RequestManager.php");
 
 /**
  *  Handles the creation of the email and sends the request
