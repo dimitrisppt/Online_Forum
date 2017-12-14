@@ -39,6 +39,8 @@ In case you get issues running the test cases, delete the vendor directory and r
 * **Week 5**: Redid login/signup to use Microsoft Graph API instead for better user validation and to have the application more tailored to KCL students. Had issues linking all the libraries together using Composer but fixed it with a clean install.
 * **Week 6**: Refactored all the code, fixed all small bugs we could find, finalized all the documents, deployed final version to Heroku and submitted all documents.
 
+Kanban board used (KCL GitHub's Projects): https://github.kcl.ac.uk/k1631089/SEG_LabProject/projects
+
 ## Additional APIs And Libraries Used
 * [PHPUnit](https://phpunit.de/) - To run the unit tests, we used the PHPUnit library as it is the most documented and solid testing library available for PHP
 
