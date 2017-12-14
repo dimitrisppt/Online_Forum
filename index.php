@@ -8,6 +8,18 @@ if ($_POST["subject"] && $_POST["message"]) {
 }
 
 ?>
+<?php
+    if ($_SESSION["did_register"]) {
+        echo '<div class="alert alert-success" role="alert" style="margin-bottom:0px;text-align:center;">
+                Successfully Reigstered!
+            </div>';
+    } else if ($_SESSION["did_login"]) {
+        echo '<div class="alert alert-success" role="alert" style="margin-bottom:0px;text-align:center;">
+                Successfully logged in!
+            </div>';
+    }
+?>
+
 <div id="Content">
     <div class="sectionTitle">
         <h3>Discussion Topics<br></h3>
