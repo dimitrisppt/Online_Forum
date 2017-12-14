@@ -21,7 +21,7 @@ require_once("autoload.php");
 require_once('classes/config.php');
 require_once('classes/user.php');
 
-// require_once('graph/MailManager.php');
+require_once('graph/MailManager.php');
 use Microsoft\Graph\Connect\MailManager;
 
 //We store user name, id, and tokens in session variables
