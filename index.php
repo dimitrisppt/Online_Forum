@@ -6,7 +6,7 @@ include('core/header.php');
 if ($_POST["subject"] && $_POST["message"]) {
     $madePost = $posts->makePost($_POST["subject"], $_POST["message"], $_SESSION["username"], $_SESSION["given_name"]);
 }
-echo $_SESSION["test_thing"];
+
 ?>
 <div id="Content">
     <div class="sectionTitle">
