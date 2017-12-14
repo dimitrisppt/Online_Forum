@@ -74,7 +74,6 @@ if ($_SERVER['REQUEST_METHOD'] === 'GET' && !isset($_GET['code']) && !isset($_GE
         // The following user properties are needed in the next page
         $_SESSION['preferred_username'] = $jsonAccessTokenPayload['preferred_username'];
         $_SESSION['given_name'] = $jsonAccessTokenPayload['name'];
-        $_SESSION['username'] = $_SESSION['preferred_username'];
         
         header('Location: sendmail.php');
         exit();
