@@ -21,7 +21,7 @@ SET time_zone = "+00:00";
 --
 
 CREATE TABLE `lab_posts` (
-  `post_id` int(11) NOT NULL,
+  `post_id` int(11) NOT NULL AUTO_INCREMENT PRIMARY KEY,
   `subject` text NOT NULL,
   `message` text NOT NULL,
   `username` varchar(50) DEFAULT NULL,
@@ -46,7 +46,7 @@ INSERT INTO `lab_posts` (`post_id`, `subject`, `message`, `username`, `preferred
 --
 
 CREATE TABLE `post_replies` (
-  `reply_id` int(11) NOT NULL,
+  `reply_id` int(11) NOT NULL AUTO_INCREMENT PRIMARY KEY,
   `message` text NOT NULL,
   `post_id` int(11) NOT NULL,
   `username` varchar(50) DEFAULT NULL,
@@ -72,7 +72,7 @@ INSERT INTO `post_replies` (`reply_id`, `message`, `post_id`, `username`, `prefe
 --
 
 CREATE TABLE `users` (
-  `user_id` int(11) NOT NULL,
+  `user_id` int(11) NOT NULL AUTO_INCREMENT PRIMARY KEY,
   `username` varchar(50) NOT NULL,
   `preferred_name` varchar(50) NOT NULL
 ) ENGINE=InnoDB AUTO_INCREMENT=4 DEFAULT CHARSET=latin1;
@@ -85,45 +85,3 @@ INSERT INTO `users` (`user_id`, `username`, `preferred_name`) VALUES
 (1, 'k1631089@kcl.ac.uk', 'Farooqi, Omar'),
 (2, 'k1630513@kcl.ac.uk', 'Papatheodoulou, Dimitris'),
 (3, 'k1630241@kcl.ac.uk', 'Demmy, Zolt');
-
---
--- Indexes for dumped tables
---
-
---
--- Indexes for table `lab_posts`
---
-ALTER TABLE `lab_posts`
-  ADD PRIMARY KEY (`post_id`);
-
---
--- Indexes for table `post_replies`
---
-ALTER TABLE `post_replies`
-  ADD PRIMARY KEY (`reply_id`);
-
---
--- Indexes for table `users`
---
-ALTER TABLE `users`
-  ADD PRIMARY KEY (`user_id`);
-
---
--- AUTO_INCREMENT for dumped tables
---
-
---
--- AUTO_INCREMENT for table `lab_posts`
---
-ALTER TABLE `lab_posts`
-  MODIFY `post_id` int(11) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=5;
---
--- AUTO_INCREMENT for table `post_replies`
---
-ALTER TABLE `post_replies`
-  MODIFY `reply_id` int(11) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=6;
---
--- AUTO_INCREMENT for table `users`
---
-ALTER TABLE `users`
-  MODIFY `user_id` int(11) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=4;
